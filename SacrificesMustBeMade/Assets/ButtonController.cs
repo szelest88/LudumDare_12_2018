@@ -17,6 +17,7 @@ public class ButtonController : MonoBehaviour
     {
         string res = "" + gameEventActionType + " has been induced";
 
+        Debug.LogError("REMOVE THIS MOTHERFUCKER!");
         testTMP.text = res;
 
         barsManager.setSomeTestValues();
