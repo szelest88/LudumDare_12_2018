@@ -15,6 +15,13 @@ public class ButtonController : MonoBehaviour
 
     void OnMouseDown()
     {
+        GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    private void OnMouseUp()
+    {
+
+        GetComponent<SpriteRenderer>().color = Color.white;
         string res = "" + gameEventActionType + " has been induced";
 
         Debug.LogError("REMOVE THIS MOTHERFUCKER!");
