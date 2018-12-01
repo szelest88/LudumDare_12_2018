@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Model
 {
-    public class GameEventTemplate
+    public class GameEventCrowdedHallway
     {
         public static GameEvent Event = new GameEvent
         {
             Name = "Crowded Hallway",
-            Predicate = gs => gs.Res.Cultits > 50,
+            Predicate = gs => gs.Res.Cultists > 50,
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
@@ -31,7 +31,7 @@ namespace Model
                     Effect = gs => {
                         gs.Res.Cultists += 50;
                         gs.Res.Wealth -= 30;
-                        gs.Res.Notoriety += 10;
+                        gs.Res.Notority += 10;
                         return gs;
                     }
                 },

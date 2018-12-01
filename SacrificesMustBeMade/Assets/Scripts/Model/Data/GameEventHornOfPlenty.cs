@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Model
 {
-    public class GameEventTemplate
+    public class GameEventHornOfPlenty
     {
         public static GameEvent Event = new GameEvent
         {
@@ -21,9 +21,9 @@ namespace Model
                     Description = "Resonable managment of wealth is essential.",
                     Effect = gs => {
                         gs.Res.Wealth -= 10;
-                        gs.Notoriety -= 10;
-                        gs.Zeal += 10;
-                        gs.Cultists +10;
+                        gs.Res.Notority -= 10;
+                        gs.Res.Zeal += 10;
+                        gs.Res.Cultists += 10;
                         return gs;
                     }
                 },
@@ -31,8 +31,8 @@ namespace Model
                     Type = GameEventActionType.Ruse,
                     Description = "As expected, our plot succeeded. Local authorities feel so threatened that they pay us bribes to keep their life safe.",
                     Effect = gs => {
-                        gs.Wealth += 60;
-                        gs.Notoriety += 30;
+                        gs.Res.Wealth += 60;
+                        gs.Res.Notority += 30;
                         return gs;
                     }
                 },
@@ -40,8 +40,8 @@ namespace Model
                     Type = GameEventActionType.Apathy,
                     Description = "My following can't just wait till they get exposed. They shall use everything at their disposal to summon me as fast as possible.",
                     Effect = gs => {
-                        gs.Zeal -= 20;
-                        gs.Notoriety -= 10;
+                        gs.Res.Zeal -= 20;
+                        gs.Res.Notority -= 10;
                         return gs;
                     }
                 }
