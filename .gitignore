@@ -1,9 +1,9 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+SacrificesMustBeMade/[Ll]ibrary/
+SacrificesMustBeMade/[Tt]emp/
+SacrificesMustBeMade/[Oo]bj/
+SacrificesMustBeMade/[Bb]uild/
+SacrificesMustBeMade/[Bb]uilds/
+SacrificesMustBeMade/Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
