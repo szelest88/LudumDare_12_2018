@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 417339499}
   - component: {fileID: 417339500}
   m_Layer: 0
-  m_Name: background
+  m_Name: backgroundWithBarsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1306,8 +1306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c57a82d0643e54b96d8fda2b0e853f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsManager: {fileID: 417339500}
   isActive: 0
   gameEventActionType: 2
+  testTMP: {fileID: 1763532850}
 --- !u!1 &1990407180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1776005381858276, guid: 53d4da33208b279499985ed4bdcfea2a,
@@ -1324,8 +1326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c57a82d0643e54b96d8fda2b0e853f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsManager: {fileID: 417339500}
   isActive: 0
   gameEventActionType: 1
+  testTMP: {fileID: 1763532850}
 --- !u!1 &1990407182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1413483147450780, guid: 53d4da33208b279499985ed4bdcfea2a,
@@ -1347,8 +1351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c57a82d0643e54b96d8fda2b0e853f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsManager: {fileID: 417339500}
   isActive: 0
   gameEventActionType: 4
+  testTMP: {fileID: 1763532850}
 --- !u!114 &1990407185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,8 +1366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c57a82d0643e54b96d8fda2b0e853f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsManager: {fileID: 417339500}
   isActive: 0
   gameEventActionType: 0
+  testTMP: {fileID: 1763532850}
 --- !u!58 &1990407186
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1453,5 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c57a82d0643e54b96d8fda2b0e853f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsManager: {fileID: 417339500}
   isActive: 0
   gameEventActionType: 3
+  testTMP: {fileID: 1763532850}
