@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StripeController : MonoBehaviour {
+public class BarController : MonoBehaviour {
     public Transform ball;
     // Use this for initialization
 
@@ -25,21 +25,38 @@ public class StripeController : MonoBehaviour {
         }
         // firstBall.gameObject.SetActive(false);
     }
+
     [Range(0, 10)]
     public int value;
+
+    /// <summary>
+    /// sets the value, normalized to 0..10
+    /// </summary>
+    /// <param name="value"></param>
+    public void setValue(float value)
+    {
+        this.value = (int)value;
+    }
+
     public Color color;
 
-    // maps 0...1 to R..G...R
+    // maps 0...1 to R..G...R in 0..1
     Vector3 getColor(float val)
     {
-        float r = Mathf.Abs(0.5f - val) * 2;
-        float g = Mathf.Abs(val - 0.5f)*2;
-        if (val < 0.5f)
-            g = 1;
-        else if (val >= 0.5f)
-            r = 1;
+        if (val <= 0.1f)
+            val = 0;
+        if (val <= 0.25f)
+            return new Vector3(1, val * 4, 0); // ok
+        if (val <= 0.5f)
+            return new Vector3((0.5f-val) * 4f, 1, 0);
+        if (val <= 0.75f)
+            return new Vector3((val - 0.5f) * 4, 1, 0);
+        else
+            if (val <= 1.0f)
+            return new Vector3(1, 1-(val - 0.75f) * 4, 0);
+        else return new Vector3(1, 1, 1);
 
-        return new Vector3(r,g,0);
+
 
     }
     void UpdateStripe()
@@ -49,9 +66,10 @@ public class StripeController : MonoBehaviour {
         {
 
             Color targetColor;
-            targetColor.r = getColor(value*0.1f).x*255;
-            targetColor.g = getColor(value * 0.1f).y*255;
-            targetColor.b = getColor(value * 0.1f).z*255;
+           // Vector3 normalized = getColor(value * 0.1f) * 255;
+            targetColor.r = getColor(value * 0.1f).x;
+            targetColor.g = getColor(value * 0.1f).y;
+            targetColor.b = getColor(value * 0.1f).z;
             targetColor.a = 255;
             color = targetColor;
             spriteRenderers[i].color = targetColor;

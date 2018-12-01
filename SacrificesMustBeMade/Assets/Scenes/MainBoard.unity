@@ -519,7 +519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 673263387}
   gameObjects: []
-  value: 8
+  spriteRenderers: []
+  value: 10
   color: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &1448589156
 GameObject:
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 673263387}
   gameObjects: []
+  spriteRenderers: []
   value: 2
   color: {r: 0.17895675, g: 1, b: 0, a: 0}
 --- !u!1 &1562731654
@@ -701,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 673263387}
   gameObjects: []
+  spriteRenderers: []
   value: 1
   color: {r: 1, g: 0.9479667, b: 0, a: 0}
 --- !u!1 &1847962854
