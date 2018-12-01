@@ -20,6 +20,5 @@ public class ButtonController : MonoBehaviour
         testTMP.text = res;
 
         barsManager.setSomeTestValues();
-        // load a new scene
     }
 }
