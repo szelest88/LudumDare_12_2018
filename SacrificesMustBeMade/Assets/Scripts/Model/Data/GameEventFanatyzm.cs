@@ -11,6 +11,7 @@ namespace Model
             Name = "Fanatyzm",
             Predicate = gs => gs.Res.Zeal >= 180 && gs.Res.Altair,
             Priority = 10,
+            MinTurn = 5,
             Retention = 3,
             Description = "Mam przyjemność poinformować, że oddanie naszych kultystów jest wielkie. Nawet… zbyt wielkie. Zgłębianie wiedzy tajemnej odbija się negatywnie na umysłach słabszych osób. Obłęd w naszych szeregach staje się powszechnością. W jaki sposób powinniśmy rozwiązać ten problem?",
             Actions = new [] {
