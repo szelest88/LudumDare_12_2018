@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StripeController : MonoBehaviour {
+public class BarController : MonoBehaviour {
     public Transform ball;
     // Use this for initialization
 
@@ -28,6 +28,16 @@ public class StripeController : MonoBehaviour {
 
     [Range(0, 10)]
     public int value;
+
+    /// <summary>
+    /// sets the value, normalized to 0..10
+    /// </summary>
+    /// <param name="value"></param>
+    public void setValue(float value)
+    {
+        this.value = (int)value;
+    }
+
     public Color color;
 
     // maps 0...1 to R..G...R in 0..1
