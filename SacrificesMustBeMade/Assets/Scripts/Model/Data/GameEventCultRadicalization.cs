@@ -5,7 +5,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Cult Radicalization",
-            Predicate = gs => gs.Res.Zeal >= 40,
+            Predicate = gs => gs.Res.Zeal >= 50,
             Priority = 5,
             Retention = 3,
             Description = "Increasing number of your cultists start making offerings from their own blood. It particularly applies to the newcomers. Some of them are reported to have fainted during rituals",
