@@ -20,17 +20,17 @@ namespace Model
                     Description = "I'm the anger. I'm the vengance. Everyone will obey me, or they die!",
                     Effect = gs => {
                         gs.Res.Zeal += 30;
-                        gs.Cultists -= 20;
+                        gs.Res.Cultists -= 20;
                         return gs;
                     }
                 },
                 new GameEventAction {
-                    Type = GameEventActionType.Enthiusiasm,
+                    Type = GameEventActionType.Enthusiasm,
                     Description = "Distracting them even more won't help. More fresh worshipers are willing to join my following, but what's the use of them anyway?",
                     Effect = gs => {
                         gs.Res.Zeal -= 10;
-                        gs.Cultists += 10;
-                        gs.Wealth -= 30;
+                        gs.Res.Cultists += 10;
+                        gs.Res.Wealth -= 30;
                         return gs;
                     }
                 },
@@ -39,7 +39,7 @@ namespace Model
                     Description = "Suddenly, those weak mortal souls are more willing to cooperate, when they know what is the jeopardy of ingoring me.",
                     Effect = gs => {
                         gs.Res.Zeal += 20;
-                        gs.Cultists -= 20;
+                        gs.Res.Cultists -= 20;
                         gs.Res.Wealth += 10;
                         return gs;
                     }

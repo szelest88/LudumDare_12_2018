@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Model
 {
     public class GameEventCultRadicalization
@@ -30,7 +26,7 @@ namespace Model
                     Effect = gs => {
                         gs.Res.Zeal += 20;
                         gs.Res.Cultists -= 30;
-                        gs.Res.Notirity =+ 20;
+                        gs.Res.Notority =+ 20;
                         return gs;
                     }
                 },

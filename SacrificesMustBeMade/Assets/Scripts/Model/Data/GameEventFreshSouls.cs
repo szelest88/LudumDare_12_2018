@@ -38,7 +38,7 @@ namespace Model
                     Type = GameEventActionType.Apathy,
                     Description = "Mortals are very anxious these days. They seek enlightenment on their own, I'm not required to take any actions to increase my following",
                     Effect = gs => {
-                        gs.Res.Cultists +10;
+                        gs.Res.Cultists += 10;
                         return gs;
                     }
                 }
