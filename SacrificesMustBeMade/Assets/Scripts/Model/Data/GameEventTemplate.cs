@@ -11,6 +11,7 @@ namespace Model
             Name = "<<This is a place for your event name>>",
             Predicate = gs => gs.Res.Altair == true,
             Priority = 8,
+            MinTurn = 1,
             Retention = 10,
             Description = "<<This is a place for your event description>>",
             Actions = new [] {

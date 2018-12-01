@@ -6,8 +6,10 @@ namespace Model
 {
     public class GameState
     {
+        // Turn number
+        // Turn counting starts from 1.
+        public uint Turn;
         public GameResources Res;
-
 
     }
 }
