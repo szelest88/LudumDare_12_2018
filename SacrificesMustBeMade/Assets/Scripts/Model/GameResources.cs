@@ -7,14 +7,14 @@ namespace Model
     public class GameResources
     {
 
-        public int Cultists;
-        public int Wealth;
-        public int Zeal;
-        public int Notority;
+        public int Cultists = GameConfig.CultistsStartingValue;
+        public int Wealth = GameConfig.WealthStartingValue;
+        public int Zeal = GameConfig.ZealStartingValue;
+        public int Notority = GameConfig.NotorityStartingValue;
 
-        public bool Virgin;
-        public bool Altair;
-        public bool Relic;
+        public bool Virgin = false;
+        public bool Altair = false;
+        public bool Relic = false;
 
     }
 }
