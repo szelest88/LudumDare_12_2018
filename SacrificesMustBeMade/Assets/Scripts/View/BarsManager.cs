@@ -45,18 +45,22 @@ public class BarsManager : MonoBehaviour
 
     }
 
-    public void OnGameEvent(Model.Game game)
+    void UpdateEverything(Model.Game game)
     {
-        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists*0.1f);
+        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists * 0.1f);
         UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.1f);
         UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.1f);
         UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.1f);
 
     }
+    public void OnGameEvent(Model.Game game)
+    {
+        UpdateEverything(game);           
+    }
 
     public void OnGameEventAction(Model.Game game)
     {
-
+        UpdateEverything(game);
     }
 
 
