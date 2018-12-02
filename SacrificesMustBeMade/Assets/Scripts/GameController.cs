@@ -100,6 +100,10 @@ public class GameController : MonoBehaviour
             }
 
             EventReceiver.BroadcastMessage("OnGameFinish", Game);
+            {
+                yield return new WaitUntil(() => EventReceived);
+                HandleEvent(e => e == EventType.RestartGame);
+            }
 
         restart:
             Game = null;
