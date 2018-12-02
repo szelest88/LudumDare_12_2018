@@ -32,9 +32,11 @@ public class BarsManager : MonoBehaviour
         }
     }
 
-    // val should be normalized to the range from 0 to 10
+    // <summary>val should be normalized to the range from 0 to 10</summary>
     public static void UpdateDisplayedValueStatic(ResourceType statnum, float val)
     {
+        if (val > 10)
+            val = 10;
         setBarControllerInTransform(staticTransform, statnum, val);
     }
 
