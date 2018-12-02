@@ -35,7 +35,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Ruse,
-                    Description = "'It's cold outside. Would you like something warm to drink?'. With good humor they march through our doorstep. We shall unleash most vile horrors upon them from 'The Tome of Meaninglessness'. We shall bring their minds to the edge of insanity. Then whe shall give them solace in obidience to you. Our Dark One",
+                    Description = "'It's cold outside. Would you like something warm to drink?'. With good humor they march through our doorstep. We shall unleash most vile horrors upon them from 'The Tome of Meaninglessness'. We shall bring their minds to the edge of insanity. Then we shall give them solace in obidience to you. Our Dark One",
                     Effect = gs => {
                         gs.Res.Notority +=20;
                         gs.Res.Cultists += 20;

@@ -17,7 +17,7 @@ namespace Model
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Enthusiasm,
-                    Description = "This is the best trade deal in the history of trade deals. Maybe ever. Cats burn for more than 40 minutes whilst red point contains as much as 15% of blood! Our cultists are overjoyed, and the new ones are joining.",
+                    Description = "This is the best trade deal in the history of trade deals. Maybe ever. Cats burn for more than 40 minutes whilst red paint contains as much as 15% of blood! Our cultists are overjoyed, and the new ones are joining.",
                     Effect = gs => {
                         gs.Res.Wealth -= 30;
                         gs.Res.Zeal += 60;
