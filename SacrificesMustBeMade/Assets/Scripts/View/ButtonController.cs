@@ -17,10 +17,7 @@ public class ButtonController : MonoBehaviour
 
     bool TESTMODE = false;
 
-    void OnMouseDown()
-    {
-        GetComponent<SpriteRenderer>().color = Color.gray;
-    }
+
 
     void DoResetAction()
     {
@@ -33,20 +30,40 @@ public class ButtonController : MonoBehaviour
         GameController.Instance.PerformAction(gameEventActionType);
     }
 
-    public void OnGameEvent(Model.Game game) // disactivating/activating
+    public void OnGameEventAction(Model.Game game)
     {
-        // deaktywować guzik
-        isActive = false;
-        GetComponent<SpriteRenderer>().color = Color.grey;
-        foreach (GameEventAction ac in game.GameState.CurrentEvent.Actions)
+        if (isGoOn)
         {
-            
-            if (ac.Type == gameEventActionType)
+
+            isActive = true;
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else
+        {
+            isActive = false;
+            GetComponent<SpriteRenderer>().color = Color.grey;
+        }
+    }
+    public void OnGameEvent(Model.Game game) 
+    {
+        if(isGoOn)
+        {
+
+            isActive = false;
+            GetComponent<SpriteRenderer>().color = Color.grey;
+        }
+        if(!isGoOn)
+        {
+            isActive = false;
+            GetComponent<SpriteRenderer>().color = Color.grey;
+            foreach (GameEventAction ac in game.GameState.CurrentEvent.Actions)
             {
-                isActive = true;
-                // guzik aktywny
-                GetComponent<SpriteRenderer>().color = Color.white;
-           //     GameController.Instance.FinishAction();
+
+                if (ac.Type == gameEventActionType)
+                {
+                    isActive = true;
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                }
             }
         }
 
@@ -91,9 +108,17 @@ public class ButtonController : MonoBehaviour
     }
     private void OnMouseUp()
     {
-
+        if (isActive)
+        {
             StartCoroutine(DelayedActions());
-        GetComponent<SpriteRenderer>().color = Color.white;
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (isActive)
+            GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
     private IEnumerator DelayedActions()
