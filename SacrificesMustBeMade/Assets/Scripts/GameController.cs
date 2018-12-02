@@ -107,6 +107,10 @@ public class GameController : MonoBehaviour
 
         restart:
             Game = null;
+
+            if (Debug) {
+                UnityEngine.Debug.Log("Game finished.");
+            }
         }
     }
 

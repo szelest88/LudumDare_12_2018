@@ -77,7 +77,7 @@ namespace Model
 
         public static bool IsFinished(GameState gs)
         {
-            return GetResult(gs) == GameResult.SUCCESS;
+            return GetResult(gs) != GameResult.UNKNOWN;
         }
 
         public static GameResult GetResult(GameState gs)
