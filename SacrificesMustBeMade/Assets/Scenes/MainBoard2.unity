@@ -221,6 +221,493 @@ MonoBehaviour:
   EventReceived: 0
   EventObject: 0
   EventParamAction: 0
+  Debug: 0
+  Game:
+    GameEvents:
+    - Name: Base Attack
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: The Inquisition's attacking! They found our base, and are performing
+        an attack! There's so many of them! What should we do? Run away? Fight back?
+        We need your guidance!
+      Actions:
+      - Type: 0
+        Description: We did it! The inquisitors are slain. But so are many of our
+          cultists. And our base suffered during the fight. But, the Inquisition will
+          surely think twice next time, they will want to pay us a visit.
+      - Type: 4
+        Description: We ran away with whatever posessions we had on us. Some of us
+          were not fast enough. Hours later, we found a suitable place for a new base.
+          With little resources, our faith was truly tested today. But, we are still
+          alive, and there's little chance, the Inquisition will be able to trace
+          our steps to this new location.
+      - Type: 3
+        Description: With no direction in this crucial moment, our forces were in
+          true panic. Some of the cultists decided to flee. Some decided to fight
+          back, and got decimated. Those, who ran away and stayed together, started
+          looking for a place for our new base. The situation is so dire, even, if
+          the Inquisition knew, where we are, they would likely not even bother with
+          us anymore.
+    - Name: Build Altar
+      Priority: 8
+      MinTurn: 6
+      Retention: 5
+      Description: It seems, our cult is doing well, when it comes to wealth. We could
+        use it to build an altar in our base. Alternatively, we could make a bigger,
+        more aggressive version. It would surely increase faith in our cult even more.
+      Actions:
+      - Type: 0
+        Description: We didn't spare resources, and made an altar, that's functional
+          and impressive. Truly, a testament of your power.
+      - Type: 2
+        Description: 'The altar is built, as you commanded. '
+      - Type: 3
+        Description: We trust your judgement, when to build structures devoted to
+          you.
+    - Name: Crowded Hallway
+      Priority: 5
+      MinTurn: 1
+      Retention: 3
+      Description: New worshipers are constantly swarming our domain. It seems we
+        can't contain them all. Should we execute the weakest so only the strongest
+        are left?We could move some of the servants to some other temporary location
+        while we enlarge our domain. Or do nothing, they should be grateful for what
+        we offer them.
+      Actions:
+      - Type: 0
+        Description: The weakest were slain, our following shrinked, but the will
+          of the strongest seems to be stronger than ever.
+      - Type: 1
+        Description: It was more costly, than we originally expected. Also, wandering
+          groups of people grow suspicion in the hearts of citizens. But now we have
+          more worshipers than we could ever imagine.
+      - Type: 3
+        Description: We underestimated the problem. Some cultists fled with goods
+          as they could no longer bear the conditions. That influenced worshipers'
+          morale adversely.
+    - Name: Cult base found
+      Priority: 5
+      MinTurn: 1
+      Retention: 5
+      Description: Your presence is ever more prominent in this world. Our ranks are
+        constantly increasing. Unfortunately, the Inquisition has also heard of your
+        cult. We suspect, they are doing their best to find our base. Should we move
+        to a different location? Or maybe we should send some of our followers to
+        set up a fake base?
+      Actions:
+      - Type: 4
+        Description: We sent some cultists with part of our items, so they could get
+          set up in a cellar far away from our location. After that, we never heard
+          from them again. We assume, they did their job, because the pressure of
+          the Inquisitors has vanished.
+      - Type: 2
+        Description: We found a different place suitable for our new base. It's not
+          as spacious as the previous one, but it will do. Sadly, we lost part of
+          our wealth during the move.
+    - Name: Cult Radicalization
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: Increasing number of your cultists start making offerings from
+        their own blood. It particularly applies to the newcomers. Some of them are
+        reported to have fainted during rituals
+      Actions:
+      - Type: 3
+        Description: I'm content with the amount of sacrifice and decide not to intervene.
+          Some of the zealots died due to excessive blood loss, but the overall zeal
+          is growing immensely.
+      - Type: 2
+        Description: A few dripplets of blood aren't going to satisfy me. The offerings
+          are now more bloody. It didn't increase their zeal as expected, considerable
+          amount of cultists died.Also, hospitals started to report some brutal dismemberents.
+      - Type: 1
+        Description: They must stay alive in order to serve me. Unfortunately, they
+          doesn't think rationally, and concern me as ungrateful god
+    - Name: Debauchery
+      Priority: 10
+      MinTurn: 1
+      Retention: 3
+      Description: Our wealth can be barely contained within our base. More importantly,
+        we have trouble keeping it safe from our own cultists. Many of them spend
+        the money on petty things. Others just waste it. We must find a way to stop
+        this wave of profligacy
+      Actions:
+      - Type: 0
+        Description: We increased the penalties for wasting our resources. Many cultists
+          have fled with some of our wealth. The rest has started to spend less.
+      - Type: 1
+        Description: It quickly became apparent, that it's impossible to just stop
+          this recless greed. So, we started to spend the wealth to improve the quality
+          of life in our little society. Thanks to this, we got new members, and our
+          fame spreads further.
+      - Type: 3
+        Description: Over time, our wealth has shrunk significantly. Now, there is
+          no problem with keeping it safe.
+    - Name: Disease
+      Priority: 5
+      MinTurn: 1
+      Retention: 3
+      Description: Some of our cultists seem to be sick. This brings my attention
+        to level of health care in our base. Which is pretty low. We could make some
+        investments related to this. We could refrain from action, and tell them,
+        the sickness is actually a test of their faith. Or, we could kick the sick
+        people out, so the disease won't spread among us.
+      Actions:
+      - Type: 2
+        Description: I sent qualified people to buy medical equipment. In short time,
+          our sick members are treated and return to health.
+      - Type: 3
+        Description: Lack of action causes the disease to spread among us. We order
+          the sick to stay away from the others. In result, some of our followers
+          die, and some leave the cult.
+      - Type: 0
+        Description: We cast out the sick to not infect others.
+    - Name: Empty Sack
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: Our goods stock is almost non-existant. We could tackle this case
+        in multiple ways. Some of our cultists are quite rich, they could share some
+        of their goods. Many of city's stores aren't well protected during nighttime.
+        We could also give more tools to our followers so they put more effort in
+        their work outside the cult. What's your will?
+      Actions:
+      - Type: 1
+        Description: It is good, your worshipers understand the necesity of sharing
+          their possessions. That's not much, but it's going to help anyway.
+      - Type: 0
+        Description: Theft is indeed profitable. Some of cultist got caught, but the
+          gains are much more impressive than the loses.
+      - Type: 2
+        Description: They tried to gain more, but in vain. We just lost more resources
+          trying to increase our gains. Our cultist also got distracted by working
+          more outside the cult.
+    - Name: False God Worhippers
+      Priority: 5
+      MinTurn: 1
+      Retention: 12
+      Description: Carollers at our doors? How displeasing! Chanting songs of false
+        god! But they're young and nothing is more sincere than faith of neophyte.
+        Shall we teach them of true Lord, chase them away or let theirs mouth spew
+        these blasphemous noise
+      Actions:
+      - Type: 0
+        Description: As we unchain dogs they scream. They dare to ask 'Why such violence
+          in this merry time?'. Words of cruel isolationists spreads
+      - Type: 3
+        Description: Songs of false prophet upsets our brothers. They dare to ask
+          how you my Lord allow for such lies to be spread on ground of your temple.
+          Vacant stares are of your worhippers are assumed to be amazement by noise
+          makers. Glad they go on their way. Most likely to ruin someone else's evening
+      - Type: 4
+        Description: '''It''s cold outside. Would you like something warm to drink?''.
+          With good humor they march through our doorstep. We shall unleash most vile
+          horrors upon them from ''The Tome of Meaninglessness''. We shall bring their
+          minds to the edge of insanity. Then whe shall give them solace in obidience
+          to you. Our Dark One'
+    - Name: Fanatyzm
+      Priority: 10
+      MinTurn: 1
+      Retention: 3
+      Description: I have the pleasure of informing you, the zeal of our cultists
+        is great. Too great, even... Learning the deepest secrets of our faith is
+        hard, especially for the lesser minds. Insanity becomes common among our people.
+        How should we deal with this problem?
+      Actions:
+      - Type: 0
+        Description: I ordered to kill the insane people, and restricted the access
+          to our sacred books. The problem of insanity is solved, but our devotion
+          suffered.
+      - Type: 4
+        Description: We have used some of our wealth to write new books with less
+          extreme contents. Now, followers can learn the secrets of our cult at slower
+          pace.
+      - Type: 3
+        Description: Extreme fanatism along with insanity has led to a small catastrophy
+          in our base. Crazy cultists have destroyed some of our resources, and ran
+          away, babbling about The Elder Ones. And about our cult. This situation
+          has injected doubt in our ranks.
+    - Name: Fresh Souls
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: We desperately need more recruits. Should we trick somebody to
+        join us using persuasion, kidnap and force them to work, or should we wait
+        for some better moment to start recruitment?Awaiting orders.
+      Actions:
+      - Type: 4
+        Description: After we gained their trust, they are more willing to cooperate.
+          Even if the work is something different, than what they expected.
+      - Type: 0
+        Description: Kidnapped people aren't willing to serve. They managed to escape
+          and also fred some less zealous followers. The police was informed about
+          the kidnaps.
+      - Type: 3
+        Description: We will do, as you command. But, our small numbers worry me.
+    - Name: Get Relic
+      Priority: 10
+      MinTurn: 10
+      Retention: 8
+      Description: News of ancient temple spreads among University scholars. Description
+        resembles temple depicted in 'The Book of Distant Shores'. Book says of dagger
+        forged under red moon. Shall we send most devoted brothers on expedition.
+        On the other hand, University archaeologist are eager to go. We could aid
+        them through dangers of dwelling within temples erected in names of The Elder
+        Ones and steal most sought possesion right from under their noses.
+      Actions:
+      - Type: 2
+        Description: Many brothers commited their flesh to the cause. Scourge inflicted
+          upon them by protective seals placed within temple meant nothing as long
+          as it brings us closer to Your forthcoming, Dark One
+      - Type: 4
+        Description: To think they dare to call themselves scholars. They know nothing.
+          We led them forth. Using them to focus wrath of Protectors on them. Their
+          numbers dwindled fast but prospect of glory and faith made them walk over
+          bodies of fallen. But prize at the end was never meant for them.
+      - Type: 3
+        Description: Really? Er, I mean, of course. We shall refrain from action.
+          But the followers were eager to go.
+    - Name: Get Virgin
+      Priority: 8
+      MinTurn: 8
+      Retention: 10
+      Description: "We found out, a wealthy man will be driving through the city,
+        with his family. Including his daughter, who's a virgin. We've learned their
+        place of rest, well guarded manor at the edge of town. It\uFFFDs known that
+        virgins father is willing to arrange marriage with respectable noble to enlarge
+        his fortune. Girl herself is naive and believes in true love at first sight,
+        willing to risk scandal to just be swayed away by lover."
+      Actions:
+      - Type: 0
+        Description: 'The fight was long and fierce. The cult suffered severe casualties,
+          but it was worth it: We got the virgin! The cult members rejoice!'
+      - Type: 3
+        Description: As you commanded, I ordered the cultists to refrain from action.
+          There will be other occasions. Still, the long wait tires them.
+      - Type: 1
+        Description: "We\uFFFDve managed to get one cultist invited to dinner at which
+          our brother convinced wealthy man to promise her hand to him in marriage.
+          Mournful girl taken away from her fathers protection. Glad father speaking
+          words of praise for young gentleman whom bestowed affection on his only
+          child. Both unaware of her place in our greater plan."
+      - Type: 4
+        Description: Seduced by stranger. His tales of far away lands. His words of
+          otherworldly wisdom. More than enough to sway daughter away from overprotective
+          father. She shall witness firsthand what gifts and forbidden knowledge can
+          compliance to the dark one bring. Enraged parent has put bounty on head
+          of mysterious lover.
+    - Name: The Horn of Plenty
+      Priority: 5
+      MinTurn: 1
+      Retention: 3
+      Description: We managed to gather a considerable amount of goods. How shall
+        we spend our new income? Should we distribute it evenly between our needs?
+        We could invest the goods we gained to plotsome evil intrigue on the city's
+        authorities. We could also wait it out, and save for tougher times.
+      Actions:
+      - Type: 1
+        Description: Resonable managment of wealth is essential.
+      - Type: 4
+        Description: As expected, our plot succeeded. Local authorities feel so threatened
+          that they pay us bribes to keep their life safe.
+      - Type: 3
+        Description: Sometimes, lack of action is the best thing.
+    - Name: Kleptomaniacs
+      Priority: 5
+      MinTurn: 1
+      Retention: 3
+      Description: The amounts of wealth stored in our base inspires our cultists.
+        Some of them become too inspired. We have caught a number of them trying to
+        steal the money. What should we do with them?
+      Actions:
+      - Type: 0
+        Description: I ordered to kill those, who reached for goods destined to you.
+          The faith of others has risen.
+      - Type: 1
+        Description: I talked to those, who lost their way. Some regret their actions.
+          I ordered them penance. Others did not want to change their ways. I deemed
+          them unworthy of being your servants, so I killed them.
+      - Type: 3
+        Description: Lack of action caused the theft incidents to continue over the
+          next days. Eventually, fear of the consequences has caused them to stop.
+    - Name: Museum Sale
+      Priority: 8
+      MinTurn: 6
+      Retention: 5
+      Description: 'It seems, our cult is doing well, when it comes to wealth. We
+        could use it to build an altar in our base. We could '
+      Actions:
+      - Type: 2
+        Description: We warmy welcome our new cult members.
+      - Type: 1
+        Description: We offer them a place in our family, but refuse to waste expenses
+          on them, until they prove their worth to you. Half of them agree to our
+          terms.
+      - Type: 3
+        Description: We send them back to wherever they came from.
+    - Name: New Recruits
+      Priority: 5
+      MinTurn: 1
+      Retention: 7
+      Description: This morning, a group of 20 poor people knocked on our door, asking
+        to join our cult. They seem to be determined to join, but we'll need to equip
+        them with clothes and satisfy their basic needs. Should we accept them in
+        our ranks, refuse their offer, or maybe find a compromise?
+      Actions:
+      - Type: 2
+        Description: We warmy welcome our new cult members.
+      - Type: 1
+        Description: We offer them a place in our family, but refuse to waste expenses
+          on them, until they prove their worth to you. Half of them agree to our
+          terms.
+      - Type: 3
+        Description: We send them back to wherever they came from.
+    - Name: Ritual theory
+      Priority: 5
+      MinTurn: 1
+      Retention: 5
+      Description: Our followers seem to be strong in faith, but weak in practice.
+        Perhaps, it would be good idea to use some of our resources to perform...
+        test rituals?
+      Actions:
+      - Type: 2
+        Description: Thanks to our ritual performing practices, the cult seems more
+          devoted.
+      - Type: 3
+        Description: I'm sure, we'll find another way to increase our devotion.
+    - Name: Sale at the 'Forbidden Scrolls;
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: 'The ''Forbidden Scrolls'' are orgranizing a sale. The most notable
+        offers are: special black cats to burn, red paint for making occultistic symbols,and
+        coats that cast evil shadow on its wearer. Should we bother it, Master?'
+      Actions:
+      - Type: 2
+        Description: This is the best trade deal in the history of trade deals. Maybe
+          ever. Cats burn for more than 40 minutes whilst red point contains as muchas
+          15% of blood! Our cultists are overjoyed, and the new ones are joining.
+      - Type: 4
+        Description: Trying to steal from them was a an abominable concept. They casted
+          a curse on us in revenge. Our cultists die, they want to change the cult,and
+          our possessions are damaged.
+      - Type: 1
+        Description: Brother Roger isn't the sharpest tool in the shed. Especially
+          when it comes to bartering. Not only we didn't manage to get the lower pricebut
+          we also got written into the black list of clients. Also, brother Roger
+          doesn't want to take part in cult anymore.
+      - Type: 3
+        Description: Well, that sale is a shady place anyway.
+    - Name: Slacking followers
+      Priority: 5
+      MinTurn: 0
+      Retention: 5
+      Description: There so many of us, that some of our worshipers aren't eager to
+        work. They just do it partly, execute task incompletely or claim thatthey
+        have lost the passion. What should we do about them?
+      Actions:
+      - Type: 0
+        Description: I didn't know that the most lazy ones are most sutiable for offerings.
+      - Type: 2
+        Description: The book about leadership and motivation that we've ordered from
+          some coaching site, doesn't seem to be of big use. That's just moneythat
+          went down the drain.
+      - Type: 3
+        Description: Ignoring this matter went better than expected. Some of them
+          that couldn't sleep at night felt guilty, and took extra hours to help the
+          cult.
+    - Name: Split
+      Priority: 10
+      MinTurn: 1
+      Retention: 2
+      Description: Ranks of our cult have grown so much, some have started worshipping
+        other gods. Attempts to persuade them otherwise have proven inefficient. I'm
+        considering kicking the heretics out of our cult. Or, we could go more extreme
+        and kill them.
+      Actions:
+      - Type: 1
+        Description: Some cultists, faced with choice, have left. But the bigger part
+          is still with us.
+      - Type: 0
+        Description: It never ceases to suprise me, how efficient mass murder is at
+          solving various problems. Too bad, the heretics started retaliating, and
+          we had a small internal war. The upside is, the ones, who survived, are
+          very faithful to our cause.
+      - Type: 3
+        Description: We allowed the matter to solve itself over time. Eventually,
+          many cultists left on their own to form a new cult. They took some of our
+          resources with them.
+    - Name: Suicidal Thoughts
+      Priority: 5
+      MinTurn: 0
+      Retention: 3
+      Description: Our following has grown to a considerable size recently. Dedication
+        of our worshipers is pleasing. But brother Roger is reporting that the increasingnumber
+        of cultists are having suicidal thoughts. That might be caused by the weight
+        of responsibility they are given.
+      Actions:
+      - Type: 4
+        Description: Gloriously. We are in dire need of those who want to take their
+          life without a blink.
+      - Type: 1
+        Description: Booking a therapy session was indeed a bright idea my lord. Our
+          cultists are more vigorous, and we are not afraid of being tracked down.Medical
+          secrecy is truly amazing. Unfortunately we couldn't sign for group therapy,
+          so it was a bit costly.
+      - Type: 0
+        Description: Excuse my bravery my Lord, but why would you ever be furious
+          at our followers for willing to take their lifes away. That's whatwe are
+          supposed to do... right?
+    - Name: <<This is a place for your event name>>
+      Priority: 8
+      MinTurn: 1
+      Retention: 10
+      Description: <<This is a place for your event description>>
+      Actions:
+      - Type: 3
+        Description: <<This is a place for your event action>>
+    - Name: Ungrateful Worshipers
+      Priority: 8
+      MinTurn: 0
+      Retention: 10
+      Description: My Lord, worshipers seem not to care about the cult as they used
+        to. Shall we unleash your anger upon them, so they know once and for all whom
+        they serve?Or maybe they just lack pleasures of the mind and the body. We
+        could always blackmail them, we are going to report them to the police or
+        harm their families.
+      Actions:
+      - Type: 0
+        Description: Disciplinary ritual sacrifices of some people renewed their faith.
+      - Type: 2
+        Description: 'We used some money to provide the followers with better goods.
+          Turns out, distracting them even more didn''t help with their faith. Quite
+          the opposite: they started spreading the news, how ''cool'' our cult is.
+          At least, this has led some new worshipers to our doors.'
+      - Type: 4
+        Description: We had to report some of cultists to police. With others, a simple
+          blackmail was enough. Still, their faith is now stronger.
+    GameState:
+      Turn: 1
+      Res:
+        Cultists: 40
+        Wealth: 50
+        Zeal: 40
+        Notority: 30
+        Virgin: 0
+        Altair: 0
+        Relic: 0
+      CurrentEvent:
+        Name: 
+        Priority: 0
+        MinTurn: 0
+        Retention: 0
+        Description: 
+        Actions: []
+      CurrentEventAction:
+        Type: 0
+        Description: 
+    Verbose: 0
 --- !u!1 &73193113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1694,7 @@ MonoBehaviour:
   isReset: 1
   isGoOn: 0
   testTMP: {fileID: 1763532850}
+  buttonType: 1
 --- !u!58 &997281681
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2749,6 +3237,7 @@ MonoBehaviour:
   isReset: 0
   isGoOn: 1
   testTMP: {fileID: 1763532850}
+  buttonType: 2
 --- !u!58 &2057469098
 CircleCollider2D:
   m_ObjectHideFlags: 0

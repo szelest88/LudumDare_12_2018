@@ -17,7 +17,8 @@ public class ButtonController : MonoBehaviour
 
     bool TESTMODE = false;
 
-
+    public enum ButtonType { ACTION, RESET, GO_ON};
+    public ButtonType buttonType;
 
     void DoResetAction()
     {
@@ -32,17 +33,19 @@ public class ButtonController : MonoBehaviour
 
     public void OnGameEventAction(Model.Game game)
     {
-        if (isGoOn)
+        switch (buttonType)
         {
+            case ButtonType.GO_ON:
 
-            isActive = true;
-            GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        else
-        {
-            isActive = false;
-            GetComponent<SpriteRenderer>().color = Color.grey;
-        }
+                isActive = true;
+                GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+            case ButtonType.ACTION:
+
+                isActive = false;
+                GetComponent<SpriteRenderer>().color = Color.grey;
+                break;
+        } 
     }
     public void OnGameEvent(Model.Game game) 
     {
