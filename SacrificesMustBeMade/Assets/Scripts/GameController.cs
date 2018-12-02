@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
         GameStart,
         PerformAction,
         FinishAction,
+        RestartGame,
     }
 
     public static GameController Instance = null;
@@ -63,33 +64,46 @@ public class GameController : MonoBehaviour
 
     IEnumerator MainLoop()
     {
-        EventReceiver.BroadcastMessage("OnIntro");
-
-        yield return new WaitUntil(() => EventReceived);
-        HandleEvent(e => e == EventType.GameStart);
-
-        Game = new Game();
-        Game.Verbose = Debug;
-        Game.Validate();
-
-        while (!Game.IsFinished())
+        while (true)
         {
-            Game.NextEvent();
-            EventReceiver.BroadcastMessage("OnGameEvent", Game);
+            EventReceiver.BroadcastMessage("OnIntro");
 
-            yield return new WaitUntil(() => EventReceived);
-            HandleEvent(e => e == EventType.PerformAction);
+            {
+                yield return new WaitUntil(() => EventReceived);
+                var eventObject = HandleEvent(e => e == EventType.GameStart || e == EventType.RestartGame);
+                if (eventObject == EventType.RestartGame) goto restart;
+            }
 
-            Game.PerformAction(EventParamAction);
-            EventReceiver.BroadcastMessage("OnGameEventAction", Game);
+            Game = new Game();
+            Game.Verbose = Debug;
+            Game.Validate();
 
-            yield return new WaitUntil(() => EventReceived);
-            HandleEvent(e => e == EventType.FinishAction);
+            while (!Game.IsFinished())
+            {
+                Game.NextEvent();
+                EventReceiver.BroadcastMessage("OnGameEvent", Game);
+
+                {
+                    yield return new WaitUntil(() => EventReceived);
+                    var eventObject = HandleEvent(e => e == EventType.PerformAction || e == EventType.RestartGame);
+                    if (eventObject == EventType.RestartGame) goto restart;
+                }
+
+                Game.PerformAction(EventParamAction);
+                EventReceiver.BroadcastMessage("OnGameEventAction", Game);
+
+                {
+                    yield return new WaitUntil(() => EventReceived);
+                    var eventObject = HandleEvent(e => e == EventType.FinishAction || e == EventType.RestartGame);
+                    if (eventObject == EventType.RestartGame) goto restart;
+                }
+            }
+
+            EventReceiver.BroadcastMessage("OnGameFinish", Game);
+
+        restart:
+            Game = null;
         }
-
-        EventReceiver.BroadcastMessage("OnGameFinish", Game);
-
-        Game = null;
     }
 
     public void GameStart()
@@ -106,6 +120,11 @@ public class GameController : MonoBehaviour
     public void FinishAction()
     {
         ReceiveEvent(EventType.FinishAction);
+    }
+
+    public void RestartGame()
+    {
+        ReceiveEvent(EventType.RestartGame);
     }
 
     private void ReceiveEvent(EventType eventObject)
