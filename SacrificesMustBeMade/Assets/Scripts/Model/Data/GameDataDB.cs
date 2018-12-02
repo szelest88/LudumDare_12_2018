@@ -30,9 +30,11 @@ namespace Model
             GameEventHornOfPlenty.Event,
             GameEventKleptomaniacs.Event,
             GameEventMuseumSale.Event,
+            GameEventNewContacts.Event,
             GameEventNewNeighbors.Event,
             GameEventNewRecruits.Event,
             GameEventNobleJoin.Event,
+            GameEventOtherCultBreakdown.Event,
             GameEventRitualTheory.Event,
             GameEventSaleAtTheForbiddenScrolls.Event,
             GameEventSlackingFollowers.Event,
@@ -41,6 +43,7 @@ namespace Model
             GameEventTemplate.Event,
             GameEventUngratefulWorshipers.Event,
             GameEventWorkHarder.Event,
+
         };
 
     }
