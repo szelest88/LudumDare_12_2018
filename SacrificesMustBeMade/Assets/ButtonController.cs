@@ -13,6 +13,7 @@ public class ButtonController : MonoBehaviour
     public GameEventActionType gameEventActionType;
     public TextMeshPro testTMP;
 
+    bool TESTMODE = true;
     void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().color = Color.gray;
@@ -20,13 +21,42 @@ public class ButtonController : MonoBehaviour
 
     private void OnMouseUp()
     {
+        switch(gameEventActionType)
+        {
+            case GameEventActionType.Apathy:
+                Debug.LogError("Apathy action to be implemented");
+                break;
+            case GameEventActionType.Conflict:
+                Debug.LogError("Conflict action to be implemented");
+                break;
+            case GameEventActionType.Diplomacy:
+                Debug.LogError("Diplomacy action to be implemented");
+                break;
+            case GameEventActionType.Enthusiasm:
+                Debug.LogError("Enthusiasm action to be implemented");
+                break;
+            case GameEventActionType.Ruse:
+                Debug.LogError("Ruse action to be implemented");
+                break;
+
+
+        }
+
 
         GetComponent<SpriteRenderer>().color = Color.white;
-        string res = "" + gameEventActionType + " has been induced";
 
-        Debug.LogError("REMOVE THIS MOTHERFUCKER!");
-        testTMP.text = res;
+        if (TESTMODE)
+        {
+            Debug.LogError("TESTMODE -> TEST ACTION FIRING FROM THE BUTTON CONTROLLER!");
+            string res = "" + gameEventActionType + " has been induced";
 
-        barsManager.setSomeTestValues();
+            barsManager.setSomeTestValues();
+
+            testTMP.text = res;
+        }
+
+
+        PentagramPresentionController.doRotate();
+
     }
 }
