@@ -27,9 +27,11 @@ public class GameController : MonoBehaviour
 
     public StateType State = StateType.Intro;
 
-    public bool EventReceived;
+    public bool EventReceived = false;
     public EventType EventObject;
     public GameEventActionType EventParamAction;
+
+    public bool Debug = false;
 
     public Game Game;
 
@@ -51,6 +53,14 @@ public class GameController : MonoBehaviour
         StartCoroutine(MainLoop());
     }
 
+    void Update()
+    {
+        if (Game != null)
+        {
+            Game.Verbose = Debug;
+        }
+    }
+
     IEnumerator MainLoop()
     {
         EventReceiver.BroadcastMessage("OnIntro");
@@ -59,6 +69,7 @@ public class GameController : MonoBehaviour
         HandleEvent(e => e == EventType.GameStart);
 
         Game = new Game();
+        Game.Verbose = Debug;
 
         while (!Game.IsFinished())
         {
