@@ -33,11 +33,12 @@ namespace Model
             }
 
             GameEvent currentEvent;
+            uint selectedPriority;
             {
                 var uniquePriorities = validGameEvents.Select(e => e.Priority).Distinct().ToArray();
                 var uniquePrioritiesSum = uniquePriorities.Sum(e => e);
                 var uniquePrioritiesWeights = uniquePriorities.Select(pri => (double)pri / (double)uniquePrioritiesSum).ToArray();
-                var selectedPriority = uniquePriorities[Math.ChooseIndexWeighted(uniquePrioritiesWeights, random.NextDouble())];
+                selectedPriority = uniquePriorities[Math.ChooseIndexWeighted(uniquePrioritiesWeights, random.NextDouble())];
 
                 var eligibleEvents = validGameEvents.Where(e => e.Priority == selectedPriority).ToArray();
                 currentEvent = eligibleEvents[random.Next(0, eligibleEvents.Length)];
@@ -51,6 +52,8 @@ namespace Model
                 );
             }
 
+            gs.ValidGameEvents = validGameEvents.ToArray();
+            gs.SelectedPriority = selectedPriority;
             gs.CurrentEvent = currentEvent;
             gs.CurrentEventAction = null;
             gs.GameEventLastTurn[currentEvent] = gs.Turn;

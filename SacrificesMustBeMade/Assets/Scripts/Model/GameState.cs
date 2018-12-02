@@ -11,6 +11,8 @@ namespace Model
         // Turn counting starts from 1.
         public uint Turn = 1;
         public GameResources Res = new GameResources();
+        public GameEvent[] ValidGameEvents;
+        public uint SelectedPriority;
         public GameEvent CurrentEvent;
         public GameEventAction CurrentEventAction;
 
