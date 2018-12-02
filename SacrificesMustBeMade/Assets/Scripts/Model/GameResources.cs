@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Model
 {
+    [System.Serializable]
     public class GameResources
     {
 

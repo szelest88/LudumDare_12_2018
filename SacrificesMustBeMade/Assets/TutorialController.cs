@@ -43,6 +43,8 @@ public class TutorialController : MonoBehaviour {
 
         tutorial.SetActive(false);
 
+        GameObject.Find("Audio").GetComponent<MusicController>().TutorialEnd();
+
         yield return null;
     }
 

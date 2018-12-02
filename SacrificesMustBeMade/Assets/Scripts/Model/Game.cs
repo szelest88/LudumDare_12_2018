@@ -6,6 +6,7 @@ using System.Linq;
 namespace Model
 {
 
+    [System.Serializable]
     public class Game
     {
         public System.Random Random = new System.Random();
@@ -36,7 +37,15 @@ namespace Model
 
         public void Validate()
         {
-
+            var verifier = new Verifier();
+            verifier.Verify(GameEvents, "Game event from game event db is not valid.");
+            
+            if (verifier.Errors.Count != 0) {
+                Debug.LogErrorFormat(
+                    "Game event db validation failed. Errors: \n{0}",
+                    string.Join("\n", verifier.Errors.ToArray())
+                );
+            }
         }
 
     }
