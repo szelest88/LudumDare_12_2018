@@ -14,6 +14,7 @@ public class MusicController : MonoBehaviour {
     AudioSource button;
     AudioSource whisper;
     AudioSource tut;
+
     void Start()
     {
         button = gameObject.AddComponent<AudioSource>();
@@ -35,7 +36,14 @@ public class MusicController : MonoBehaviour {
         whisper.Play();
     }
 
-    public void PlayClick()
+    //public void ButtonClick()
+    //{
+    //    button.clip = buttons[Random.Range(0, buttons.Length)];
+    //    button.loop = false;
+    //    button.Play();
+    //}
+
+    public void ButtonClick()
     {
         button.clip = buttons[Random.Range(0, buttons.Length)];
         button.loop = false;

@@ -121,7 +121,11 @@ public class ButtonController : MonoBehaviour
     void OnMouseDown()
     {
         if (isActive)
+        {
             GetComponent<SpriteRenderer>().color = Color.gray;
+            GameObject.Find("Audio").GetComponent<MusicController>().ButtonClick();
+        }
+            
     }
 
     private IEnumerator DelayedActions()
