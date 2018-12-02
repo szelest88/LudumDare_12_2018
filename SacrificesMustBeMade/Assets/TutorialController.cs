@@ -11,6 +11,7 @@ public class TutorialController : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        tmp = GameObject.Find("PlotTextDisplay").GetComponent<TMPro.TextMeshPro>();
         next = false;
         StartCoroutine(Tutorial(gameObject));
 	}
