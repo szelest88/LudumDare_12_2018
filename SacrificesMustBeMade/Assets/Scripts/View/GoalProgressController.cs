@@ -8,11 +8,11 @@ public class GoalProgressController : MonoBehaviour {
     public SpriteRenderer altar;
     public SpriteRenderer virgin;
 
-    public void onGameTurnStart(bool[] state)
+    public void OnGameEventAction(Model.Game game)
     {
-        dagger.color = state[0] ? Color.white : Color.black;
-        altar.color = state[1] ? Color.white : Color.black;
-        virgin.color = state[2] ? Color.white : Color.black;
+        dagger.color = game.GameState.Res.Relic ? Color.white : Color.black;
+        altar.color = game.GameState.Res.Altair ? Color.white : Color.black;
+        virgin.color = game.GameState.Res.Virgin ? Color.white : Color.black;
     }
 
     void Start ()
