@@ -7,10 +7,21 @@ namespace Model
 {
     public class GameLogic
     {
-        public static GameEvent NextEvent(GameEvent[] gameEvents, GameState gs, System.Random random, bool verbose)
+        public static GameState NextEvent(GameEvent[] gameEvents, GameState gs, System.Random random, bool verbose)
         {
+            gs.Turn += 1;
+
             var validGameEvents = new List<GameEvent>();
             {
+                validGameEvents = gameEvents
+                    .Where(e =>
+                        // min turn requirement
+                        gs.Turn <= e.MinTurn
+                        // retention
+                        && (gs.GameEventLastTurn.ContainsKey(e) == false || gs.GameEventLastTurn[e] + e.Retention <= gs.Turn)
+                        // predicate
+                        && e.Predicate(gs))
+                    .ToList();
                 foreach (GameEvent ge in gameEvents)
                 {
                     if (ge.Predicate(gs))
@@ -38,13 +49,13 @@ namespace Model
             //     }
             // }
 
-            GameEvent result;
+            GameEvent currentEvent;
             {
                 var maxPriority = validGameEvents.Max(e => e.Priority);
                 var maxPriorityEvents = validGameEvents
                     .Where(e => e.Priority == maxPriority)
                     .ToList();
-                result = maxPriorityEvents[random.Next(0, maxPriorityEvents.Count)];
+                currentEvent = maxPriorityEvents[random.Next(0, maxPriorityEvents.Count)];
             }
 
 
@@ -52,11 +63,55 @@ namespace Model
             {
                 Debug.LogFormat("Game next event. validGameEvents: [{0}], result: {1}",
                     string.Join(",", validGameEvents.Select(e => e.ToString()).ToArray()),
-                    result
+                    currentEvent
                 );
             }
 
-            return result;
+            gs.CurrentEvent = currentEvent;
+            gs.CurrentEventAction = null;
+            gs.GameEventLastTurn[currentEvent] = gs.Turn;
+            return gs;
         }
+
+        public static GameState PerformAction(GameState gs, GameEventActionType actionType, bool verbose)
+        {
+            if (verbose)
+            {
+                Debug.LogFormat("Game perform action. action: {0}", actionType);
+            }
+
+            gs.CurrentEventAction = gs.CurrentEvent.Actions.First(a => a.Type == actionType);
+
+            gs.CurrentEventAction.Effect(gs);
+            gs.Validate();
+
+            return gs;
+        }
+
+        public static bool IsFinished(GameState gs)
+        {
+            return GetResult(gs) == GameResult.SUCCESS;
+        }
+
+        public static GameResult GetResult(GameState gs)
+        {
+            if (gs.Res.Altair && gs.Res.Relic && gs.Res.Virgin)
+            {
+                return GameResult.SUCCESS;
+            }
+            else if (gs.Res.Cultists == 0)
+            {
+                return GameResult.FAILURE_NO_CULTISTS;
+            }
+            else if (gs.Res.Zeal == 0)
+            {
+                return GameResult.FAILURE_NO_ZEAL;
+            }
+            else
+            {
+                return GameResult.UNKNOWN;
+            }
+        }
+
     }
 }

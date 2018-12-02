@@ -16,5 +16,23 @@ namespace Model
         public bool Altair = false;
         public bool Relic = false;
 
+        public void Validate() {
+            if (Cultists < 0) {
+                Cultists = 0;
+            }
+
+            if (Wealth < 0) {
+                Wealth = 0;
+            }
+
+            if (Zeal < 0) {
+                Zeal = 0;
+            }
+
+            if (Notority < 0) {
+                Notority = 0;
+            }
+        }
+
     }
 }

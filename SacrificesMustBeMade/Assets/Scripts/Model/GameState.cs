@@ -11,6 +11,12 @@ namespace Model
         public uint Turn = 1;
         public GameResources Res;
         public GameEvent CurrentEvent;
+        public GameEventAction CurrentEventAction;
 
+        public Dictionary<GameEvent, uint> GameEventLastTurn = new Dictionary<GameEvent, uint>();
+
+        public void Validate() {
+            Res.Validate();
+        }
     }
 }

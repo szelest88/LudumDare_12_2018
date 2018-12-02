@@ -62,35 +62,41 @@ public class GameController : MonoBehaviour
         while (!Game.IsFinished())
         {
             Game.NextEvent();
-
             EventReceiver.BroadcastMessage("OnGameEvent", Game);
 
             yield return new WaitUntil(() => EventReceived);
             HandleEvent(e => e == EventType.PerformAction);
 
             Game.PerformAction(EventParamAction);
+            EventReceiver.BroadcastMessage("OnGameEventAction", Game);
 
             yield return new WaitUntil(() => EventReceived);
             HandleEvent(e => e == EventType.FinishAction);
         }
 
         EventReceiver.BroadcastMessage("OnGameFinish", Game);
+
+        Game = null;
     }
 
-    public void GameStart() {
+    public void GameStart()
+    {
         ReceiveEvent(EventType.GameStart);
     }
 
-    public void PerformAction(GameEventActionType action) {
+    public void PerformAction(GameEventActionType action)
+    {
         ReceiveEvent(EventType.PerformAction);
         EventParamAction = action;
     }
 
-    public void FinishAction() {
+    public void FinishAction()
+    {
         ReceiveEvent(EventType.FinishAction);
     }
 
-    private void ReceiveEvent(EventType eventObject) {
+    private void ReceiveEvent(EventType eventObject)
+    {
         EventReceived = true;
         EventObject = eventObject;
     }
@@ -101,7 +107,7 @@ public class GameController : MonoBehaviour
         if (predicate(EventObject) == false)
         {
             throw new System.Exception(
-                string.Format("Failed to receive event. state: {0} event: {1}", State, EventObject);
+                string.Format("Failed to receive event. state: {0} event: {1}", State, EventObject)
             );
         }
         return EventObject;

@@ -12,20 +12,26 @@ namespace Model
         public GameEvent[] GameEvents = GameDataDB.GameEvents;
         public GameState GameState = new GameState();
 
-        public void Start() {
-            GameState.CurrentEvent = GameLogic.NextEvent(GameEvents, GameState, Random, false);
+        public bool Verbose;
+
+        public void NextEvent()
+        {
+            GameState = GameLogic.NextEvent(GameEvents, GameState, Random, Verbose);
         }
 
-        public void PerformAction(GameEventActionType action) {
-
+        public void PerformAction(GameEventActionType actionType)
+        {
+            GameState = GameLogic.PerformAction(GameState, actionType, Verbose);
         }
 
-        public void NextEvent() {
-
+        public bool IsFinished()
+        {
+            return GameLogic.IsFinished(GameState);
         }
 
-        public bool IsFinished() {
-            return false;
+        public GameResult GetResult()
+        {
+            return GameLogic.GetResult(GameState);
         }
 
         public void Validate()
