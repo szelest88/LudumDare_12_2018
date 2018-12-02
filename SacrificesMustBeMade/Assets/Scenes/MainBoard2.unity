@@ -697,6 +697,8 @@ MonoBehaviour:
         Virgin: 0
         Altair: 0
         Relic: 0
+      ValidGameEvents: []
+      SelectedPriority: 0
       CurrentEvent:
         Name: 
         Priority: 0
@@ -1659,7 +1661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &997281679
 Transform:
   m_ObjectHideFlags: 0
