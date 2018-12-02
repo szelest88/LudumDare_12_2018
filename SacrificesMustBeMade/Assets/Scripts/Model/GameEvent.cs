@@ -30,7 +30,7 @@ namespace Model
 			verification.Verify(Priority, p => p > 0, "Priority <= 0");
 			verification.Verify(MinTurn, mt => mt > 0, "MinTurn <= 0");
 			verification.Verify(Description, d => d != null, "Description == null");
-			verification.Verify(Description, d => d.Length == 0, "Description is empty");
+			verification.Verify(Description, d => d.Length != 0, "Description is empty");
 			verification.Verify(Actions, a => a.Length > 0, "Actions is empty");
 			verification.Verify(Actions, a => a.Select(ac => ac.Type).Distinct().Count() == a.Length, "Actions are duplicated.");
 		}
