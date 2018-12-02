@@ -14,8 +14,8 @@ namespace Model
 			if ((weights.Length != 0) == false) {
 				throw new System.InvalidOperationException("Weights must not be empty.");
 			}
-			if ((0.0 <= value && value < 1.0) == false) {
-				throw new System.InvalidOperationException("Value must be in [0.0, 1.0) range. value: " + value);
+			if ((0.0 <= value && value <= 1.0) == false) {
+				throw new System.InvalidOperationException("Value must be in [0.0, 1.0] range. value: " + value);
 			}
 
             double total = 0;
@@ -27,7 +27,6 @@ namespace Model
                     return i;
                 }
             }
-			// Shouldn't happen, but assuming float errors choose the last element.
 			return weights.Length - 1;
         }
     }

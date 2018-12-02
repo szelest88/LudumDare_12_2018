@@ -8,10 +8,10 @@ namespace Model
     public class GameConfig
     {
 
-        public const int CultistsStartingValue = 0;
-        public const int WealthStartingValue = 0;
-        public const int ZealStartingValue = 0;
-        public const int NotorityStartingValue = 0;
+        public const int CultistsStartingValue = 40;
+        public const int WealthStartingValue = 50;
+        public const int ZealStartingValue = 40;
+        public const int NotorityStartingValue = 30;
 
     }
 

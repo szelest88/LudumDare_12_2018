@@ -16,19 +16,12 @@ namespace Model
                 validGameEvents = gameEvents
                     .Where(e =>
                         // min turn requirement
-                        gs.Turn <= e.MinTurn
+                        gs.Turn >= e.MinTurn
                         // retention
                         && (gs.GameEventLastTurn.ContainsKey(e) == false || gs.GameEventLastTurn[e] + e.Retention <= gs.Turn)
                         // predicate
                         && e.Predicate(gs))
                     .ToList();
-                foreach (GameEvent ge in gameEvents)
-                {
-                    if (ge.Predicate(gs))
-                    {
-                        validGameEvents.Add(ge);
-                    }
-                }
 
                 if (validGameEvents.Count == 0)
                 {
@@ -39,25 +32,16 @@ namespace Model
                 }
             }
 
-            // TODO: Select event with weighted random
-            // {
-            //     var uniquePriorities = new HashSet<uint>(validGameEvents.Select(e => e.Priority));
-            //     var uniquePrioritiesSum = uniquePriorities.Sum(e => e);
-            //     var weights = new double[uniquePriorities.Count];
-            //     for (int i = 0; i < uniquePriorities.Count; ++i) {
-            //         weights[i] = uniquePriorities
-            //     }
-            // }
-
             GameEvent currentEvent;
             {
-                var maxPriority = validGameEvents.Max(e => e.Priority);
-                var maxPriorityEvents = validGameEvents
-                    .Where(e => e.Priority == maxPriority)
-                    .ToList();
-                currentEvent = maxPriorityEvents[random.Next(0, maxPriorityEvents.Count)];
-            }
+                var uniquePriorities = validGameEvents.Select(e => e.Priority).Distinct().ToArray();
+                var uniquePrioritiesSum = uniquePriorities.Sum(e => e);
+                var uniquePrioritiesWeights = uniquePriorities.Select(pri => (double)pri / (double)uniquePrioritiesSum).ToArray();
+                var selectedPriority = uniquePriorities[Math.ChooseIndexWeighted(uniquePrioritiesWeights, random.NextDouble())];
 
+                var eligibleEvents = validGameEvents.Where(e => e.Priority == selectedPriority).ToArray();
+                currentEvent = eligibleEvents[random.Next(0, eligibleEvents.Length)];
+            }
 
             if (verbose)
             {
