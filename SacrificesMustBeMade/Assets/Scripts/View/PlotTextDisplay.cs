@@ -21,4 +21,19 @@ public class PlotTextDisplay : MonoBehaviour {
         plotTMP.SetText(text);
     }
 
+    public void OnGameEvent(Model.Game game)
+    {
+        plotTMP.SetText(game.GameState.CurrentEvent.Description);
+    }
+
+    public void OnGameEventAction(Model.Game game)
+    {
+        plotTMP.SetText(game.GameState.CurrentEventAction.Description);
+    }
+
+    public void OnIntro()
+    {
+        GameController.Instance.GameStart();
+    }
+
 }

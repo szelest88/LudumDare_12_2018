@@ -13,7 +13,6 @@ public class BarsManager : MonoBehaviour
         NOTORITY
     }
 
-    // val should be normalized to the range from 0 to 10
     static void setBarControllerInTransform(Transform t, ResourceType statnum, float val)
     {
         switch (statnum)
@@ -33,6 +32,7 @@ public class BarsManager : MonoBehaviour
         }
     }
 
+    // val should be normalized to the range from 0 to 10
     public static void UpdateDisplayedValueStatic(ResourceType statnum, float val)
     {
         setBarControllerInTransform(staticTransform, statnum, val);
@@ -44,6 +44,21 @@ public class BarsManager : MonoBehaviour
 
 
     }
+
+    public void OnGameEvent(Model.Game game)
+    {
+        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists*0.1f);
+        UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.1f);
+
+    }
+
+    public void OnGameEventAction(Model.Game game)
+    {
+
+    }
+
 
     static Transform staticTransform;
     // Use this for initialization

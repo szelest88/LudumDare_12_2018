@@ -12,9 +12,10 @@ public class ButtonController : MonoBehaviour
 
     public GameEventActionType gameEventActionType;
     public bool isReset;
+    public bool isGoOn;
     public TextMeshPro testTMP;
 
-    bool TESTMODE = true;
+    bool TESTMODE = false;
 
     void OnMouseDown()
     {
@@ -28,25 +29,26 @@ public class ButtonController : MonoBehaviour
 
     void DoGameAction(GameEventActionType gameEventActionType)
     {
-        switch (gameEventActionType)
-        {
-            case GameEventActionType.Apathy:
-                Debug.LogError("Apathy action to be implemented");
-                break;
-            case GameEventActionType.Conflict:
-                Debug.LogError("Conflict action to be implemented");
-                break;
-            case GameEventActionType.Diplomacy:
-                Debug.LogError("Diplomacy action to be implemented");
-                break;
-            case GameEventActionType.Enthusiasm:
-                Debug.LogError("Enthusiasm action to be implemented");
-                break;
-            case GameEventActionType.Ruse:
-                Debug.LogError("Ruse action to be implemented");
-                break;
+        GameController.Instance.PerformAction(gameEventActionType);
+    }
 
-        }
+    public void OnGameEventAction(Model.Game game) // disactivating/activating
+    {
+        // deaktywować guzik
+        GetComponent<SpriteRenderer>().color = Color.grey;
+        foreach(GameEventAction ac in game.GameState.CurrentEvent.Actions)
+            if (ac.Type == gameEventActionType)
+            {
+                // guzik aktywny
+                GetComponent<SpriteRenderer>().color = Color.white;
+                GameController.Instance.FinishAction();
+            }
+
+    }
+
+    void GoOn()
+    {
+        GameController.Instance.FinishAction();
     }
 
     void ButtonAction()
@@ -54,6 +56,10 @@ public class ButtonController : MonoBehaviour
         if (isReset)
         {
             DoResetAction();
+        }
+        else if (isGoOn)
+        {
+            GoOn();
         }
         else
         {

@@ -15,4 +15,6 @@ public class PentagramPresentionController : MonoBehaviour {
     {
         animator.SetTrigger("Rotate");
     }
+
+
 }
