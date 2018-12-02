@@ -11,7 +11,7 @@ namespace Model
             Name = "Noble Join",
             Predicate = gs => gs.Res.Notority >= 100,
             Priority = 5,
-            MinTurn = 10,
+            MinTurn = 6,
             Retention = 12,
             Description = "Today, a nobleman has visited. He has heard aboout our cult, and is really interested in joining us. He seems pretty oblivious of what's going on here. I feel, he's just bored and wants to experience something extreme or esoteric. Still, he offers to immediately give us some money. And he's pretty rich. But, I doubt, he'll be able to stay discreet when talking to his friends outside the cult. Should we let him in?",
             Actions = new[] {

@@ -13,7 +13,7 @@ namespace Model
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Apathy,
-                    Description = "I'm content with the amount of sacrifice and decide not to intervene. Some of the zealots died due to excessive blood loss, but the overall zeal is growing immensely.",
+                    Description = "If you're content with the amount of sacrifice, then I shall not intervene. Some of the zealots die due to excessive blood loss, but the overall zeal is growing immensely.",
                     Effect = gs => {
                         gs.Res.Zeal += 30;
                         gs.Res.Cultists -= 10;
@@ -22,7 +22,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Enthusiasm,
-                    Description = "A few dripplets of blood aren't going to satisfy me. The offerings are now more bloody. It didn't increase their zeal as expected, considerable amount of cultists died." +
+                    Description = "I encourage the cultists, that their devotion pleases you. The offerings are now more bloody. It didn't increase their zeal as expected, considerable amount of cultists died." +
                     "Also, hospitals started to report some brutal dismemberents.",
                     Effect = gs => {
                         gs.Res.Zeal += 20;
@@ -33,7 +33,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Diplomacy,
-                    Description = "They must stay alive in order to serve me. Unfortunately, they doesn't think rationally, and concern me as ungrateful god",
+                    Description = "I convince the cultists, they won't be much of use to you, if they die. Unfortunately, they don't think rationally, and concern you as an ungrateful god",
                     Effect = gs => {
                         gs.Res.Zeal -=20;
                         return gs;
