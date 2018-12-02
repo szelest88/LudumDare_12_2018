@@ -12,9 +12,8 @@ public class BarsManager : MonoBehaviour
         ZEAL,
         NOTORITY
     }
+
     // val should be normalized to the range from 0 to 10
-
-
     static void setBarControllerInTransform(Transform t, ResourceType statnum, float val)
     {
         switch (statnum)
@@ -52,9 +51,5 @@ public class BarsManager : MonoBehaviour
     {
         staticTransform = transform;
     }   
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }
