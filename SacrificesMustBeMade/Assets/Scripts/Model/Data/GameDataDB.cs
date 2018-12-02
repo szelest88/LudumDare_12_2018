@@ -30,6 +30,7 @@ namespace Model
             GameEventHornOfPlenty.Event,
             GameEventKleptomaniacs.Event,
             GameEventMuseumSale.Event,
+            GameEventNewNeighbors.Event,
             GameEventNewRecruits.Event,
             GameEventNobleJoin.Event,
             GameEventRitualTheory.Event,
