@@ -10,11 +10,15 @@ namespace Model
         public static GameEvent[] GameEvents = new GameEvent[] {
             // GameEventTemplate.Event,
             // GameEventFanatyzm.Event,
+            GameEventAltarUse.Event,
             GameEventBaseAttack.Event,
+            GameEventBookStolen.Event,
             GameEventBuildAltar.Event,
+            GameEventCanvasser.Event,
             GameEventCrowdedHallway.Event,
             GameEventCultBaseFound.Event,
             GameEventCultRadicalization.Event,
+            GameEventCultistsInterrogated.Event,
             GameEventDebauchery.Event,
             GameEventDisease.Event,
             GameEventEmptySack.Event,
@@ -27,6 +31,7 @@ namespace Model
             GameEventKleptomaniacs.Event,
             GameEventMuseumSale.Event,
             GameEventNewRecruits.Event,
+            GameEventNobleJoin.Event,
             GameEventRitualTheory.Event,
             GameEventSaleAtTheForbiddenScrolls.Event,
             GameEventSlackingFollowers.Event,
@@ -34,6 +39,7 @@ namespace Model
             GameEventSuicidalThoughts.Event,
             GameEventTemplate.Event,
             GameEventUngratefulWorshipers.Event,
+            GameEventWorkHarder.Event,
         };
 
     }
