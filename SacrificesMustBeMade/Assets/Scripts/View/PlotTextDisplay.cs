@@ -36,5 +36,17 @@ public class PlotTextDisplay : MonoBehaviour {
         tutorialObject.SetActive(true);
     }
 
+    public void OnGameFinish(Model.Game game)
+    {
+        if(game.GetResult() == Model.GameResult.SUCCESS)
+        {
+            plotTMP.SetText("Cultist rejoice! As blood of virgin trickle down the stairs you our Dark Lord rises. Eons of sweet darknes are upon us brothers.");
+        }
+        else
+        {
+            plotTMP.SetText("The last cultists leave. Ones left had forgotten about you Dark One.");
+        }
+    }
+
     public GameObject tutorialObject;
 }
