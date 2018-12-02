@@ -13,8 +13,7 @@ namespace Model
             Priority = 8,
             MinTurn = 1,
             Retention = 10,
-            Description = "My Lord, worshipers seem not to care about the cult as they used to. Shall we unleash your anger upon them, so they know once and for all whom they serve?" +
-            "Or maybe they just lack pleasures of the mind and the body. We could always blackmail them, we are going to report them to the police or harm their families.",
+            Description = "My Lord, worshipers seem not to care about the cult as they used to. Shall we unleash your anger upon them, so they know once and for all whom they serve? Or maybe they just lack pleasures of the mind and the body. We could always blackmail them, we are going to report them to the police or harm their families.",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,

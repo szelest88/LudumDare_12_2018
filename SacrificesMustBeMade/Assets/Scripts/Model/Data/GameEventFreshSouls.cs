@@ -13,8 +13,7 @@ namespace Model
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
-            Description = "We desperately need more recruits. Should we trick somebody to join us using persuasion, kidnap and force them to work, or should we wait for some better moment to start recruitment?" +
-            "Awaiting orders.",
+            Description = "We desperately need more recruits. Should we trick somebody to join us using persuasion, kidnap and force them to work, or should we wait for some better moment to start recruitment? Awaiting orders.",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Ruse,

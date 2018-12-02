@@ -13,8 +13,7 @@ namespace Model
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
-            Description = "Our following has grown to a considerable size recently. Dedication of our worshipers is pleasing. But brother Roger is reporting that the increasing" +
-            "number of cultists are having suicidal thoughts. That might be caused by the weight of responsibility they are given.",
+            Description = "Our following has grown to a considerable size recently. Dedication of our worshipers is pleasing. But brother Roger is reporting that the increasing number of cultists are having suicidal thoughts. That might be caused by the weight of responsibility they are given.",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Ruse,
@@ -28,8 +27,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Diplomacy,
-                    Description = "Booking a therapy session was indeed a bright idea my lord. Our cultists are more vigorous, and we are not afraid of being tracked down." +
-                    "Medical secrecy is truly amazing. Unfortunately we couldn't sign for group therapy, so it was a bit costly.",
+                    Description = "Booking a therapy session was indeed a bright idea my lord. Our cultists are more vigorous, and we are not afraid of being tracked down. Medical secrecy is truly amazing. Unfortunately we couldn't sign for group therapy, so it was a bit costly.",
                     Effect = gs => {
                         gs.Res.Zeal += 40;
                         gs.Res.Notority -= 10;
@@ -39,8 +37,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,
-                    Description = "Excuse my bravery my Lord, but why would you ever be furious at our followers for willing to take their lifes away. That's what" +
-                    "we are supposed to do... right?",
+                    Description = "Excuse my bravery my Lord, but why would you ever be furious at our followers for willing to take their lifes away. That's what we are supposed to do... right?",
                     Effect = gs => {
                         gs.Res.Zeal -= 50;
                         return gs;

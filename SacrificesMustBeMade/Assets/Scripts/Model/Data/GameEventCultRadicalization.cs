@@ -22,8 +22,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Enthusiasm,
-                    Description = "I encourage the cultists, that their devotion pleases you. The offerings are now more bloody. It didn't increase their zeal as expected, considerable amount of cultists died." +
-                    "Also, hospitals started to report some brutal dismemberents.",
+                    Description = "I encourage the cultists, that their devotion pleases you. The offerings are now more bloody. It didn't increase their zeal as expected, considerable amount of cultists died. Also, hospitals started to report some brutal dismemberents.",
                     Effect = gs => {
                         gs.Res.Zeal += 20;
                         gs.Res.Cultists -= 30;

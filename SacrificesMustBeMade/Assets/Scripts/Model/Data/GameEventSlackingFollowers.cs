@@ -13,8 +13,7 @@ namespace Model
             Priority = 5,
             MinTurn = 1,
             Retention = 5,
-            Description = "There so many of us, that some of our worshipers aren't eager to work. They just do it partly, execute task incompletely or claim that" +
-            "they have lost the passion. What should we do about them?",
+            Description = "There so many of us, that some of our worshipers aren't eager to work. They just do it partly, execute task incompletely or claim that they have lost the passion. What should we do about them?",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,
@@ -28,8 +27,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Enthusiasm,
-                    Description = "The book about leadership and motivation that we've ordered from some coaching site, doesn't seem to be of big use. That's just money" +
-                    "that went down the drain.",
+                    Description = "The book about leadership and motivation that we've ordered from some coaching site, doesn't seem to be of big use. That's just money that went down the drain.",
                     Effect = gs => {
                         gs.Res.Cultists -= 10;
                         gs.Res.Wealth -= 10;
@@ -38,8 +36,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Apathy,
-                    Description = "Ignoring this matter went better than expected. Some of them that couldn't sleep at night felt guilty, and took extra hours" +
-                    " to help the cult.",
+                    Description = "Ignoring this matter went better than expected. Some of them that couldn't sleep at night felt guilty, and took extra hours to help the cult.",
                     Effect = gs => {
                         gs.Res.Zeal += 10;
                         gs.Res.Wealth += 20;

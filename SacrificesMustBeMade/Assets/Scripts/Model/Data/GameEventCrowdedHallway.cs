@@ -13,8 +13,7 @@ namespace Model
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
-            Description = "New worshipers are constantly swarming our domain. It seems we can't contain them all. Should we execute the weakest so only the strongest are left?" +
-            "We could move some of the servants to some other temporary location while we enlarge our domain. Or do nothing, they should be grateful for what we offer them.",
+            Description = "New worshipers are constantly swarming our domain. It seems we can't contain them all. Should we execute the weakest so only the strongest are left? We could move some of the servants to some other temporary location while we enlarge our domain. Or do nothing, they should be grateful for what we offer them.",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,

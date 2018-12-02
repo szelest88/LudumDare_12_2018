@@ -13,8 +13,7 @@ namespace Model
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
-            Description = "We managed to gather a considerable amount of goods. How shall we spend our new income? Should we distribute it evenly between our needs? We could invest the goods we gained to plot" +
-            "some evil intrigue on the city's authorities. We could also wait it out, and save for tougher times.",
+            Description = "We managed to gather a considerable amount of goods. How shall we spend our new income? Should we distribute it evenly between our needs? We could invest the goods we gained to plot some evil intrigue on the city's authorities. We could also wait it out, and save for tougher times.",
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Diplomacy,
