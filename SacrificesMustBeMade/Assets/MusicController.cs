@@ -24,6 +24,7 @@ public class MusicController : MonoBehaviour {
         button.outputAudioMixerGroup = mixer.FindMatchingGroups("Button")[0];
         tut.outputAudioMixerGroup = mixer.FindMatchingGroups("Tutorial")[0];
         whisper.outputAudioMixerGroup = mixer.FindMatchingGroups("Whispers")[0];
+        whisper.loop = true;
 
         tut.clip = tutorial;
         tut.Play();
