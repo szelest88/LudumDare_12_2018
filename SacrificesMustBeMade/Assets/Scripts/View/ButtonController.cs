@@ -22,7 +22,7 @@ public class ButtonController : MonoBehaviour
 
     void DoResetAction()
     {
-        Debug.LogError("Reset action to be implemented");
+        GameController.Instance.RestartGame();
     }
 
     void DoGameAction(GameEventActionType gameEventActionType)
@@ -47,7 +47,24 @@ public class ButtonController : MonoBehaviour
                 break;
         } 
     }
-    public void OnGameEvent(Model.Game game) 
+    public void OnGameFinish(Model.Game game)
+    {
+        Debug.LogError("FINISH!");
+        if (!isReset)
+        {
+            isActive = false;
+            GetComponent<SpriteRenderer>().color = Color.grey;
+
+        }
+
+     }
+
+    public void OnGameIntro()
+    {
+        isActive = true;
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+        public void OnGameEvent(Model.Game game) 
     {
         if(isGoOn)
         {

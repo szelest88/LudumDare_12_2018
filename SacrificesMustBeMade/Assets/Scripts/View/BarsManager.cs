@@ -49,10 +49,10 @@ public class BarsManager : MonoBehaviour
 
     void UpdateEverything(Model.Game game)
     {
-        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists * 0.1f);
-        UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.1f);
-        UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.1f);
-        UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists * 0.05f);
+        UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.05f);
+        UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.05f);
+        UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.05f);
 
     }
     public void OnGameEvent(Model.Game game)
