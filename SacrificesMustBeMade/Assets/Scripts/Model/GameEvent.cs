@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Model
 {
 
-    public class GameEvent
+    public class GameEvent : IVerifiable
     {
 
         public string Name;
@@ -30,7 +31,7 @@ namespace Model
 			verification.Verify(Description, d => d != null, "Description == null");
 			verification.Verify(Description, d => d.Length == 0, "Description is empty");
 			verification.Verify(Actions, a => a.Length > 0, "Actions is empty");
-			// TODO: Verify actions are unique
+			verification.Verify(Actions, a => a.Select(ac => ac.Type).Distinct().Count() == a.Length, "Actions are duplicated.");
 		}
 
     }
