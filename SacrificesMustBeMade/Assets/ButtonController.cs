@@ -11,17 +11,24 @@ public class ButtonController : MonoBehaviour
     public bool isActive;
 
     public GameEventActionType gameEventActionType;
+    public bool isReset;
     public TextMeshPro testTMP;
 
     bool TESTMODE = true;
+
     void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
-    private void OnMouseUp()
+    void DoResetAction()
     {
-        switch(gameEventActionType)
+        Debug.LogError("Reset action to be implemented");
+    }
+
+    void DoGameAction(GameEventActionType gameEventActionType)
+    {
+        switch (gameEventActionType)
         {
             case GameEventActionType.Apathy:
                 Debug.LogError("Apathy action to be implemented");
@@ -39,24 +46,52 @@ public class ButtonController : MonoBehaviour
                 Debug.LogError("Ruse action to be implemented");
                 break;
 
-
         }
+    }
 
-
-        GetComponent<SpriteRenderer>().color = Color.white;
-
-        if (TESTMODE)
+    void ButtonAction()
+    {
+        if (isReset)
         {
-            Debug.LogError("TESTMODE -> TEST ACTION FIRING FROM THE BUTTON CONTROLLER!");
-            string res = "" + gameEventActionType + " has been induced";
+            DoResetAction();
+        }
+        else
+        {
+            DoGameAction(gameEventActionType);
 
-            barsManager.setSomeTestValues();
+            if (TESTMODE)
+            {
+                Debug.LogError("TESTMODE -> TEST ACTION FIRING FROM THE BUTTON CONTROLLER!");
+                string res = "" + gameEventActionType + " has been induced";
 
-            testTMP.text = res;
+                PlotTextDisplay.setText(res);
+                testTMP.text = res;
+
+                BarsManager.UpdateDisplayedValueStatic(BarsManager.ResourceType.CULTIST, Random.Range(0, 11));
+                BarsManager.UpdateDisplayedValueStatic(BarsManager.ResourceType.WEALTH, Random.Range(0, 11));
+                BarsManager.UpdateDisplayedValueStatic(BarsManager.ResourceType.ZEAL, Random.Range(0, 11));
+                BarsManager.UpdateDisplayedValueStatic(BarsManager.ResourceType.NOTORITY, Random.Range(0, 11));
+
+            }
         }
 
 
-        PentagramPresentionController.doRotate();
+    }
+    private void OnMouseUp()
+    {
 
+            StartCoroutine(DelayedActions());
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    private IEnumerator DelayedActions()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (!isReset)
+        {
+            PentagramPresentionController.doRotate();
+        }
+        ButtonAction();
     }
 }

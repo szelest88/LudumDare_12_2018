@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarsManager : MonoBehaviour {
+public class BarsManager : MonoBehaviour
+{
 
     public enum ResourceType
     {
@@ -12,41 +13,48 @@ public class BarsManager : MonoBehaviour {
         NOTORITY
     }
     // val should be normalized to the range from 0 to 10
-    public  void UpdateDisplayedValue(ResourceType statnum, float val)
+
+
+    static void setBarControllerInTransform(Transform t, ResourceType statnum, float val)
     {
         switch (statnum)
         {
             case ResourceType.CULTIST:
-                transform.Find("cultistBar").GetComponent<BarController>().setValue(val);
+                t.Find("cultistBar").GetComponent<BarController>().setValue(val);
                 break;
             case ResourceType.WEALTH:
-                transform.Find("wealthBar").GetComponent<BarController>().setValue(val);
+                t.Find("wealthBar").GetComponent<BarController>().setValue(val);
                 break;
             case ResourceType.ZEAL:
-                transform.Find("zealBar").GetComponent<BarController>().setValue(val);
+                t.Find("zealBar").GetComponent<BarController>().setValue(val);
                 break;
             case ResourceType.NOTORITY:
-                transform.Find("notorityBar").GetComponent<BarController>().setValue(val);
+                t.Find("notorityBar").GetComponent<BarController>().setValue(val);
                 break;
         }
-
     }
 
-    // val should be normalized to the range from 0 to 10
-    public void setSomeTestValues()
+    public static void UpdateDisplayedValueStatic(ResourceType statnum, float val)
     {
-        Debug.LogError("TURN THIS OFF!");
+        setBarControllerInTransform(staticTransform, statnum, val);
+    }
 
-        UpdateDisplayedValue(ResourceType.CULTIST, Random.Range(0,11));
-        UpdateDisplayedValue(ResourceType.WEALTH, Random.Range(0, 11));
-        UpdateDisplayedValue(ResourceType.ZEAL, Random.Range(0, 11));
-        UpdateDisplayedValue(ResourceType.NOTORITY, Random.Range(0, 11));
+    public void UpdateDisplayedValue(ResourceType statnum, float val)
+    {
+        setBarControllerInTransform(transform, statnum, val);
+
+
     }
+
+    static Transform staticTransform;
     // Use this for initialization
-	void Start () {
-    }
+    void Start()
+    {
+        staticTransform = transform;
+    }   
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }
