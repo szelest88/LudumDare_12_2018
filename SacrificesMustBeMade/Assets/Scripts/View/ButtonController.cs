@@ -29,20 +29,26 @@ public class ButtonController : MonoBehaviour
 
     void DoGameAction(GameEventActionType gameEventActionType)
     {
+        if(isActive)
         GameController.Instance.PerformAction(gameEventActionType);
     }
 
-    public void OnGameEventAction(Model.Game game) // disactivating/activating
+    public void OnGameEvent(Model.Game game) // disactivating/activating
     {
         // deaktywować guzik
+        isActive = false;
         GetComponent<SpriteRenderer>().color = Color.grey;
-        foreach(GameEventAction ac in game.GameState.CurrentEvent.Actions)
+        foreach (GameEventAction ac in game.GameState.CurrentEvent.Actions)
+        {
+            
             if (ac.Type == gameEventActionType)
             {
+                isActive = true;
                 // guzik aktywny
                 GetComponent<SpriteRenderer>().color = Color.white;
-                GameController.Instance.FinishAction();
+           //     GameController.Instance.FinishAction();
             }
+        }
 
     }
 

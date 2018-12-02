@@ -33,6 +33,7 @@ public class PlotTextDisplay : MonoBehaviour {
 
     public void OnIntro()
     {
+        Debug.LogError("PlotTextOnIntro -> GameStart()");
         GameController.Instance.GameStart();
     }
 
