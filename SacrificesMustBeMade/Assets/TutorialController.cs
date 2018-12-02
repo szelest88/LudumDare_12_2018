@@ -43,9 +43,13 @@ public class TutorialController : MonoBehaviour {
 
         tutorial.SetActive(false);
 
+        GameController.Instance.GameStart();
+
         GameObject.Find("Audio").GetComponent<MusicController>().TutorialEnd();
 
         yield return null;
+
+
     }
 
     public void Continue()

@@ -33,7 +33,8 @@ public class PlotTextDisplay : MonoBehaviour {
 
     public void OnIntro()
     {
-        GameController.Instance.GameStart();
+        tutorialObject.SetActive(true);
     }
 
+    public GameObject tutorialObject;
 }
