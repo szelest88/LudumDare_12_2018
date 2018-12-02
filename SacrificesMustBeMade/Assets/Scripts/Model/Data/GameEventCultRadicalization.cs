@@ -7,6 +7,7 @@ namespace Model
             Name = "Cult Radicalization",
             Predicate = gs => gs.Res.Zeal >= 50,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "Increasing number of your cultists start making offerings from their own blood. It particularly applies to the newcomers. Some of them are reported to have fainted during rituals",
             Actions = new [] {

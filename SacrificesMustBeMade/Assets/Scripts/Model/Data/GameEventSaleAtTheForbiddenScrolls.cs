@@ -11,6 +11,7 @@ namespace Model
             Name = "Sale at the 'Forbidden Scrolls;",
             Predicate = gs => gs.Res.Wealth >= 60,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "The 'Forbidden Scrolls' are orgranizing a sale. The most notable offers are: special black cats to burn, red paint for making occultistic symbols," +
             "and coats that cast evil shadow on its wearer. Should we bother it, Master?",

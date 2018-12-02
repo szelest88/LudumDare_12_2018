@@ -11,6 +11,7 @@ namespace Model
             Name = "Base Attack",
             Predicate = gs => gs.Res.Notority >= 180,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "The Inquisition's attacking! They found our base, and are performing an attack! There's so many of them! What should we do? Run away? Fight back? We need your guidance!",
             Actions = new[] {

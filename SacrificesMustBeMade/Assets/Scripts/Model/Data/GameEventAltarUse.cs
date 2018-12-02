@@ -11,6 +11,7 @@ namespace Model
             Name = "Altar Use",
             Predicate = gs => gs.Res.Altair == true,
             Priority = 5,
+            MinTurn = 1,
             Retention = 6,
             Description = "A rare setup of stars is going to happen soon. We could use our altar to perform a ritual for you. According to the sacred texts, it will bring us deeper understanding of the Dark Arts. All I need, is a word of your acceptance. Oh, and there is a more extreme version of this ritual, that could bestow us with mystic powers. But that requires some human sacrifices and costly ingredients.",
             Actions = new[] {

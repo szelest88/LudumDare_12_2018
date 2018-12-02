@@ -11,6 +11,7 @@ namespace Model
             Name = "Empty Sack",
             Predicate = gs => gs.Res.Wealth <= 20,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "Our goods stock is almost non-existant. We could tackle this case in multiple ways. Some of our cultists are quite rich, they could share some of their goods" +
             ". Many of city's stores aren't well protected during nighttime. We could also give more tools to our followers so they put more effort in their work outside the cult. What's your will?",
