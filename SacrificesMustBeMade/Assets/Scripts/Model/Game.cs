@@ -16,7 +16,7 @@ namespace Model
             GameState.CurrentEvent = GameLogic.NextEvent(GameEvents, GameState, Random, false);
         }
 
-        public void PerformAction(GameEventAction action) {
+        public void PerformAction(GameEventActionType action) {
 
         }
 

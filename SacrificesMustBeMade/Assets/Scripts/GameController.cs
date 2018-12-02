@@ -5,28 +5,41 @@ using Model;
 
 public class GameController : MonoBehaviour
 {
-    public enum EventType
+    public enum StateType
     {
-        GAME_START_REQUEST,
-        GAME_ACTION_REQUEST,
-        GAME_ACTION_FINISHED,
+        Intro,
+        GameEvent,
+        GameAction,
+        Finish,
+
     }
 
-    public static GameController instance = null;
+    public enum EventType
+    {
+        GameStart,
+        PerformAction,
+        FinishAction,
+    }
 
-    public bool eventReceived;
-    public EventType eventObject;
-    public GameEventAction action;
+    public static GameController Instance = null;
 
-    public Game game;
+    public GameObject EventReceiver;
+
+    public StateType State = StateType.Intro;
+
+    public bool EventReceived;
+    public EventType EventObject;
+    public GameEventActionType EventParamAction;
+
+    public Game Game;
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
@@ -39,37 +52,58 @@ public class GameController : MonoBehaviour
 
     IEnumerator MainLoop()
     {
-        BroadcastMessage("OnIntro");
+        EventReceiver.BroadcastMessage("OnIntro");
 
-        yield return new WaitUntil(() => eventReceived);
-        if (eventObject != EventType.GAME_START_REQUEST)
+        yield return new WaitUntil(() => EventReceived);
+        HandleEvent(e => e == EventType.GameStart);
+
+        Game = new Game();
+
+        while (!Game.IsFinished())
         {
-            throw new System.Exception("Invalid event: " + eventObject);
+            Game.NextEvent();
+
+            EventReceiver.BroadcastMessage("OnGameEvent", Game);
+
+            yield return new WaitUntil(() => EventReceived);
+            HandleEvent(e => e == EventType.PerformAction);
+
+            Game.PerformAction(EventParamAction);
+
+            yield return new WaitUntil(() => EventReceived);
+            HandleEvent(e => e == EventType.FinishAction);
         }
 
-        game = new Game();
+        EventReceiver.BroadcastMessage("OnGameFinish", Game);
+    }
 
-        while (!game.IsFinished())
+    public void GameStart() {
+        ReceiveEvent(EventType.GameStart);
+    }
+
+    public void PerformAction(GameEventActionType action) {
+        ReceiveEvent(EventType.PerformAction);
+        EventParamAction = action;
+    }
+
+    public void FinishAction() {
+        ReceiveEvent(EventType.FinishAction);
+    }
+
+    private void ReceiveEvent(EventType eventObject) {
+        EventReceived = true;
+        EventObject = eventObject;
+    }
+
+    private EventType HandleEvent(System.Predicate<EventType> predicate)
+    {
+        EventReceived = false;
+        if (predicate(EventObject) == false)
         {
-            game.NextEvent();
-
-            BroadcastMessage("OnGameEvent", game);
-
-            yield return new WaitUntil(() => eventReceived);
-            if (eventObject != EventType.GAME_ACTION_REQUEST)
-            {
-                throw new System.Exception("Invalid event: " + eventObject);
-            }
-
-            game.PerformAction(action);
-
-            yield return new WaitUntil(() => eventReceived);
-            if (eventObject != EventType.GAME_ACTION_FINISHED)
-            {
-                throw new System.Exception("Invalid event: " + eventObject);
-            }
+            throw new System.Exception(
+                string.Format("Failed to receive event. state: {0} event: {1}", State, EventObject);
+            );
         }
-
-        BroadcastMessage("OnGameFinish", game);
+        return EventObject;
     }
 }
