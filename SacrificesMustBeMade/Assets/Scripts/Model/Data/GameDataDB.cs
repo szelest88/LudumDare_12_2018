@@ -9,7 +9,6 @@ namespace Model
 
         public static GameEvent[] GameEvents = new GameEvent[] {
             // GameEventTemplate.Event,
-            // GameEventFanatyzm.Event,
             GameEventAltarUse.Event,
             GameEventBaseAttack.Event,
             GameEventBookStolen.Event,
@@ -23,7 +22,6 @@ namespace Model
             GameEventDisease.Event,
             GameEventEmptySack.Event,
             GameEventFalseGodWorhippers.Event,
-            GameEventFanatyzm.Event,
             GameEventFreshSouls.Event,
             GameEventGetRelic.Event,
             GameEventGetVirgin.Event,
@@ -40,10 +38,8 @@ namespace Model
             GameEventSlackingFollowers.Event,
             GameEventSplit.Event,
             GameEventSuicidalThoughts.Event,
-            GameEventTemplate.Event,
             GameEventUngratefulWorshipers.Event,
             GameEventWorkHarder.Event,
-
         };
 
     }
