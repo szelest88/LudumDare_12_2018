@@ -6,6 +6,7 @@ using System.Linq;
 namespace Model
 {
 
+	[System.Serializable]
     public class GameEvent : IVerifiable
     {
 

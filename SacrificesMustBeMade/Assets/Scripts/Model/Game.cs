@@ -6,6 +6,7 @@ using System.Linq;
 namespace Model
 {
 
+    [System.Serializable]
     public class Game
     {
         public System.Random Random = new System.Random();
@@ -13,11 +14,6 @@ namespace Model
         public GameState GameState = new GameState();
 
         public bool Verbose;
-
-        public Game()
-        {
-            Validate();
-        }
 
         public void NextEvent()
         {

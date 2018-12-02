@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
 
         Game = new Game();
         Game.Verbose = Debug;
+        Game.Validate();
 
         while (!Game.IsFinished())
         {
