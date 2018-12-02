@@ -42,10 +42,10 @@ public class TutorialController : MonoBehaviour {
         tmp.text = "TO ACHIEVE THAT CULT NEED TO OBTAIN SACCRIFICIAL VIRGIN, POWERFULL RELIC AND AN ALTAR TO PERFORM RITUAL";
 
         tutorial.SetActive(false);
-
+        GameObject.Find("Audio").GetComponent<MusicController>().TutorialEnd();
         GameController.Instance.GameStart();
 
-        GameObject.Find("Audio").GetComponent<MusicController>().TutorialEnd();
+        
 
         yield return null;
 

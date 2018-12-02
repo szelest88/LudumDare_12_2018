@@ -1731,7 +1731,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 09898038b33b4c34da114bc33939b63d, type: 3}
   - {fileID: 8300000, guid: 3f813e46f47b78b4d85d01727789647e, type: 3}
   - {fileID: 8300000, guid: dd70003f7616c3f40b4caa3400d18ce0, type: 3}
-  whispers: {fileID: 8300000, guid: dd70003f7616c3f40b4caa3400d18ce0, type: 3}
+  whispers: {fileID: 8300000, guid: da423ec79788d7b4bb7086d3ee1d8d4a, type: 3}
   mixer: {fileID: 24100000, guid: cd3c2359fe910bd439060ab3ba80d919, type: 2}
 --- !u!1 &799864275
 GameObject:
