@@ -9,7 +9,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Crowded Hallway",
-            Predicate = gs => gs.Res.Cultists > 120,
+            Predicate = gs => gs.Res.Cultists > 60,
             Priority = 5,
             MinTurn = 1,
             Retention = 3,

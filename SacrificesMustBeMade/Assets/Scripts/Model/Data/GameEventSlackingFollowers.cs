@@ -9,7 +9,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Slacking followers",
-            Predicate = gs => gs.Res.Cultists >= 120 && gs.Res.Zeal < 40,
+            Predicate = gs => gs.Res.Cultists >= 70 && gs.Res.Zeal <= 50,
             Priority = 5,
             MinTurn = 1,
             Retention = 5,

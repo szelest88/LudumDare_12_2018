@@ -9,7 +9,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Empty Sack",
-            Predicate = gs => gs.Res.Wealth <= 20,
+            Predicate = gs => gs.Res.Wealth <= 40,
             Priority = 5,
             MinTurn = 1,
             Retention = 3,

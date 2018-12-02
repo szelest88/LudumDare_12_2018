@@ -9,7 +9,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Suicidal Thoughts",
-            Predicate = gs => gs.Res.Cultists >= 90 && gs.Res.Zeal >= 80,
+            Predicate = gs => gs.Res.Cultists >= 60 && gs.Res.Zeal >= 60,
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
