@@ -22,7 +22,7 @@ namespace Model
                     Description = "Thanks to our ritual performing practices, the cult seems more devoted.",
                     Effect = gs => {
                         gs.Res.Wealth -= 10;
-                        gs.Res.Zeal += 10;
+                        gs.Res.Zeal += 20;
                         return gs;
                     }
                 },

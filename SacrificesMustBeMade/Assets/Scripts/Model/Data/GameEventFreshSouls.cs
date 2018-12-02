@@ -17,7 +17,7 @@ namespace Model
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Ruse,
-                    Description = "After we gained their trust, they are more willing to cooperate. Even if the work is something different what they expected.",
+                    Description = "After we gained their trust, they are more willing to cooperate. Even if the work is something different, than what they expected.",
                     Effect = gs => {
                         gs.Res.Cultists += 20;
                         gs.Res.Wealth -= 10;
@@ -26,7 +26,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,
-                    Description = "Kidnapped people aren't willing to serve. They managed to escaped and also fred some less zealous followers. The police was informed about the kidnaps.",
+                    Description = "Kidnapped people aren't willing to serve. They managed to escape and also fred some less zealous followers. The police was informed about the kidnaps.",
                     Effect = gs => {
                         gs.Res.Cultists -= 10;
                         gs.Res.Zeal += 10;
@@ -36,9 +36,9 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Apathy,
-                    Description = "Mortals are very anxious these days. They seek enlightenment on their own, I'm not required to take any actions to increase my following",
+                    Description = "We will do, as you command. But, our small numbers worry me.",
+                    //Description = "Mortals are very anxious these days. They seek enlightenment on their own, I'm not required to take any actions to increase my following",
                     Effect = gs => {
-                        gs.Res.Cultists += 10;
                         return gs;
                     }
                 }

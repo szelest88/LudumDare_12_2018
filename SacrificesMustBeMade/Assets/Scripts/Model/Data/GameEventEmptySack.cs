@@ -17,9 +17,9 @@ namespace Model
             Actions = new [] {
                 new GameEventAction {
                     Type = GameEventActionType.Diplomacy,
-                    Description = "Good my worshipers understand the necesity of sharing their possessions. That's not much, but it's going to help anyway.",
+                    Description = "It is good, your worshipers understand the necesity of sharing their possessions. That's not much, but it's going to help anyway.",
                     Effect = gs => {
-                        gs.Res.Wealth += 10;
+                        gs.Res.Wealth += 20;
                         return gs;
                     }
 
@@ -36,7 +36,7 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Enthusiasm,
-                    Description = "They tried to gain more, but in vain. We just lose more resources trying to increase our gains. Our cultist also got distracted by working more outside the cult",
+                    Description = "They tried to gain more, but in vain. We just lost more resources trying to increase our gains. Our cultist also got distracted by working more outside the cult.",
                     Effect = gs => {
                         gs.Res.Wealth -= 10;
                         gs.Res.Zeal -= 20;

@@ -9,7 +9,7 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "Crowded Hallway",
-            Predicate = gs => gs.Res.Cultists > 50,
+            Predicate = gs => gs.Res.Cultists > 120,
             Priority = 5,
             MinTurn = 1,
             Retention = 3,
@@ -29,9 +29,9 @@ namespace Model
                     Type = GameEventActionType.Diplomacy,
                     Description = "It was more costly, than we originally expected. Also, wandering groups of people grow suspicion in the hearts of citizens. But now we have more worshipers than we could ever imagine.",
                     Effect = gs => {
-                        gs.Res.Cultists += 50;
+                        gs.Res.Cultists += 30;
                         gs.Res.Wealth -= 30;
-                        gs.Res.Notority += 10;
+                        gs.Res.Notority += 20;
                         return gs;
                     }
                 },

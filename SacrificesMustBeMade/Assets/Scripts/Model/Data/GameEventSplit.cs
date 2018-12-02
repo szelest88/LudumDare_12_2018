@@ -33,6 +33,15 @@ namespace Model
                         gs.Res.Zeal += 20;
                         return gs;
                     }
+                },
+                new GameEventAction {
+                    Type = GameEventActionType.Apathy,
+                    Description = "We allowed the matter to solve itself over time. Eventually, many cultists left on their own to form a new cult. They took some of our resources with them.",
+                    Effect = gs => {
+                        gs.Res.Cultists -= 60;
+                        gs.Res.Wealth -= 40;
+                        return gs;
+                    }
                 }
 
             }

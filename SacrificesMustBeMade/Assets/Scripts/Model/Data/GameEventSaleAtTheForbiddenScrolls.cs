@@ -43,8 +43,15 @@ namespace Model
                     "but we also got written into the black list of clients. Also, brother Roger doesn't want to take part in cult anymore.",
                     Effect = gs => {
                         gs.Res.Notority += 30;
-                        gs.Res.Wealth -= 30;
+                        gs.Res.Wealth -= 10;
                         gs.Res.Cultists -= 1;
+                        return gs;
+                    }
+                },
+                new GameEventAction {
+                    Type = GameEventActionType.Apathy,
+                    Description = "Well, that sale is a shady place anyway.",
+                    Effect = gs => {
                         return gs;
                     }
                 }

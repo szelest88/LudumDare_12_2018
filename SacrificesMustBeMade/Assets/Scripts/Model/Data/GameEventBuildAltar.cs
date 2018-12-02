@@ -33,6 +33,7 @@ namespace Model
                         gs.Res.Wealth -= 80;
                         gs.Res.Zeal += 20;
                         gs.Res.Notority += 20;
+                        gs.Res.Altair = true;
                         return gs;
                     }
                 },

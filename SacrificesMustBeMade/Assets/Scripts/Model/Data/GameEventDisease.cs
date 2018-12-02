@@ -30,6 +30,7 @@ namespace Model
                     Effect = gs => {
                         gs.Res.Cultists -= 10;
                         gs.Res.Zeal -= 10;
+                        gs.Res.Notority -= 10;
                         return gs;
                     }
                 },

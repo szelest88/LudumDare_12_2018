@@ -9,8 +9,8 @@ namespace Model
         public static GameEvent Event = new GameEvent
         {
             Name = "False God Worhippers",
-            Predicate = gs => gs.Res.Zeal >= 100 && gs.Res.Notority <= 75,
-            Priority = 2,
+            Predicate = gs => gs.Res.Zeal >= 50 && gs.Res.Notority <= 75,
+            Priority = 5,
             MinTurn = 1,
             Retention = 12,
             Description = "Carollers at our doors? How displeasing! Chanting songs of false god! But they're young and nothing is more sincere than faith of neophyte. Shall we teach them of true Lord, chase them away or let theirs mouth spew these blasphemous noise",
@@ -35,9 +35,10 @@ namespace Model
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Ruse,
-                    Description = "'It's cold outside. Would you like something warm to drink?'. With good humor they march through our doorstep. We shall unleash most vile horrors upon them from 'The Tome of Meaninglessness'. We shall bring their minds to the edge of insanity. Than whe shall give them solace in obidience to you. Our Dark One",
+                    Description = "'It's cold outside. Would you like something warm to drink?'. With good humor they march through our doorstep. We shall unleash most vile horrors upon them from 'The Tome of Meaninglessness'. We shall bring their minds to the edge of insanity. Then whe shall give them solace in obidience to you. Our Dark One",
                     Effect = gs => {
                         gs.Res.Notority +=20;
+                        gs.Res.Cultists += 20;
                         return gs;
                     }
                 }

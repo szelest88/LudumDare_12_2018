@@ -32,15 +32,14 @@ namespace Model
                     Description = "As expected, our plot succeeded. Local authorities feel so threatened that they pay us bribes to keep their life safe.",
                     Effect = gs => {
                         gs.Res.Wealth += 60;
-                        gs.Res.Notority += 30;
+                        gs.Res.Notority += 40;
                         return gs;
                     }
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Apathy,
-                    Description = "My following can't just wait till they get exposed. They shall use everything at their disposal to summon me as fast as possible.",
+                    Description = "Sometimes, lack of action is the best thing.",
                     Effect = gs => {
-                        gs.Res.Zeal -= 20;
                         gs.Res.Notority -= 10;
                         return gs;
                     }
