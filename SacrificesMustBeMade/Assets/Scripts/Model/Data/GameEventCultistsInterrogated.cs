@@ -11,6 +11,7 @@ namespace Model
             Name = "Cultists Interrogated",
             Predicate = gs => gs.Res.Notority >= 100,
             Priority = 5,
+            MinTurn = 1,
             Retention = 10,
             Description = "A few of our cultists, when performing their duties outside, got captured by Inquisitors. I fear, their will won't hold against the tortures, and they will spill our secrets. They are held in a moderately protected building, three streets from our base. We must attack and free them! Um, I mean, only if you support this idea. If you don't, then we can bribe the guards, sneak there and free them in a less violent way.",
             Actions = new[] {

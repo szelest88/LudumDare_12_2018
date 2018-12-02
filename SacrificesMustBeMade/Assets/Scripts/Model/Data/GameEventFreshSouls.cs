@@ -11,6 +11,7 @@ namespace Model
             Name = "Fresh Souls",
             Predicate = gs => gs.Res.Cultists <= 30,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "We desperately need more recruits. Should we trick somebody to join us using persuasion, kidnap and force them to work, or should we wait for some better moment to start recruitment?" +
             "Awaiting orders.",

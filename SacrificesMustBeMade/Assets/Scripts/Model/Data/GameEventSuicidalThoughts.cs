@@ -11,6 +11,7 @@ namespace Model
             Name = "Suicidal Thoughts",
             Predicate = gs => gs.Res.Cultists >= 90 && gs.Res.Zeal >= 80,
             Priority = 5,
+            MinTurn = 1,
             Retention = 3,
             Description = "Our following has grown to a considerable size recently. Dedication of our worshipers is pleasing. But brother Roger is reporting that the increasing" +
             "number of cultists are having suicidal thoughts. That might be caused by the weight of responsibility they are given.",

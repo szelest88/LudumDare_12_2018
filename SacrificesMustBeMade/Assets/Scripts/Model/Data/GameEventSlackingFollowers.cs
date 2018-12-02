@@ -11,6 +11,7 @@ namespace Model
             Name = "Slacking followers",
             Predicate = gs => gs.Res.Cultists >= 120 && gs.Res.Zeal < 40,
             Priority = 5,
+            MinTurn = 1,
             Retention = 5,
             Description = "There so many of us, that some of our worshipers aren't eager to work. They just do it partly, execute task incompletely or claim that" +
             "they have lost the passion. What should we do about them?",
