@@ -13,7 +13,7 @@ namespace Model
             Priority = 2,
             MinTurn = 1,
             Retention = 12,
-            Description = "Carollers at our doors? How displeasing! Chanting songs of false god! But they're young and nothing is more sincere than faith of neophyte. Shall we teach them of true lord, chase them away or let theirs mouth spew these blasphemous noise",
+            Description = "Carollers at our doors? How displeasing! Chanting songs of false god! But they're young and nothing is more sincere than faith of neophyte. Shall we teach them of true Lord, chase them away or let theirs mouth spew these blasphemous noise",
             Actions = new[] {
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,
@@ -37,8 +37,7 @@ namespace Model
                     Type = GameEventActionType.Ruse,
                     Description = "'It's cold outside. Would you like something warm to drink?'. With good humor they march through our doorstep. We shall unleash most vile horrors upon them from 'The Tome of Meaninglessness'. We shall bring their minds to the edge of insanity. Than whe shall give them solace in obidience to you. Our Dark One",
                     Effect = gs => {
-                        gs.Res.Zeal -= 30;
-                        gs.Res.Notority -=30;
+                        gs.Res.Notority +=20;
                         return gs;
                     }
                 }
