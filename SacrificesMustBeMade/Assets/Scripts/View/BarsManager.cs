@@ -32,11 +32,11 @@ public class BarsManager : MonoBehaviour
         }
     }
 
-    // <summary>val should be normalized to the range from 0 to 10</summary>
+    // <summary>val should be normalized to the range from 0 to 20</summary>
     public static void UpdateDisplayedValueStatic(ResourceType statnum, float val)
     {
-        if (val > 10)
-            val = 10;
+        if (val > 20)
+            val = 20;
         setBarControllerInTransform(staticTransform, statnum, val);
     }
 
@@ -49,10 +49,11 @@ public class BarsManager : MonoBehaviour
 
     void UpdateEverything(Model.Game game)
     {
-        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists * 0.05f);
-        UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.05f);
-        UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.05f);
-        UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.05f);
+
+        UpdateDisplayedValueStatic(ResourceType.CULTIST, game.GameState.Res.Cultists * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.WEALTH, game.GameState.Res.Wealth * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.ZEAL, game.GameState.Res.Zeal * 0.1f);
+        UpdateDisplayedValueStatic(ResourceType.NOTORITY, game.GameState.Res.Notority * 0.1f);
 
     }
     public void OnGameEvent(Model.Game game)

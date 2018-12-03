@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BarController : MonoBehaviour {
-    public Transform ball;
+    public Transform ball, halfBall;
+
     // Use this for initialization
 
     public List<GameObject> gameObjects;
     public List<SpriteRenderer> spriteRenderers;
 
 	void Start () {
-        Transform firstBall = ball.transform;
+        Transform firstBall = ball;
         for (int i = 0; i < 10; i++)
         {
-            GameObject t = Instantiate(firstBall.gameObject);
+            GameObject t = Instantiate(halfBall.gameObject);
             gameObjects.Add(t);
             Color targetColor = color;
             targetColor.a = 255;
@@ -26,16 +27,16 @@ public class BarController : MonoBehaviour {
         // firstBall.gameObject.SetActive(false);
     }
 
-    [Range(0, 10)]
-    public int value;
+    [Range(0, 20)]
+    public float value;
 
     /// <summary>
-    /// sets the value, normalized to 0..10
+    /// sets the value, normalized to 0..20
     /// </summary>
     /// <param name="value"></param>
     public void setValue(float value)
     {
-        this.value = (int)value;
+        this.value = value;
     }
 
     public Color color;
@@ -61,24 +62,33 @@ public class BarController : MonoBehaviour {
     }
     void UpdateStripe()
     {
+        Color targetColor;
 
-        for (int i = 0; i < value; i++)
+        targetColor.r = getColor(value * 0.05f).x;
+        targetColor.g = getColor(value * 0.05f).y;
+        targetColor.b = getColor(value * 0.05f).z;
+        targetColor.a = 255;
+        Color whiteA0 = Color.white;
+        whiteA0.a = 255;
+
+        for (int i = 0; i < (int)(value * 0.5); i++)
         {
+    
+            gameObjects[i].GetComponent<SpriteRenderer>().color = targetColor;
+            gameObjects[i].GetComponentsInChildren<SpriteRenderer>()[1].color = targetColor;
 
-            Color targetColor;
-           // Vector3 normalized = getColor(value * 0.1f) * 255;
-            targetColor.r = getColor(value * 0.1f).x;
-            targetColor.g = getColor(value * 0.1f).y;
-            targetColor.b = getColor(value * 0.1f).z;
-            targetColor.a = 255;
-            color = targetColor;
-            spriteRenderers[i].color = targetColor;
         }
-        for(int i = value; i < 10; i++)
+        for (int i = (int)(value*0.5); i < 10; i++)
         {
-            Color targetColor = Color.white;
-            targetColor.a = 255;
-            spriteRenderers[i].color = targetColor;
+            gameObjects[i].GetComponent<SpriteRenderer>().color = whiteA0;
+            gameObjects[i].GetComponentsInChildren<SpriteRenderer>()[1].color = whiteA0;
+        }
+
+        if ((int)value % 2 == 1)
+        {
+
+            gameObjects[(int)(value*0.5)].GetComponent<SpriteRenderer>().color = targetColor;
+
         }
     }
 	// Update is called once per frame
