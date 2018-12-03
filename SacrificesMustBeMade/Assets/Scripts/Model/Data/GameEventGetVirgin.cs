@@ -15,7 +15,7 @@ namespace Model
             Priority = 8,
             MinTurn = 8,
             Retention = 10,
-            Description = "We found out, a wealthy man will be driving through the city, with his family. Including his daughter, who's a virgin. We've learned their place of rest, well guarded manor at the edge of town. It�s known that virgins father is willing to arrange marriage with respectable noble to enlarge his fortune. Girl herself is naive and believes in true love at first sight, willing to risk scandal to just be swayed away by lover.",
+            Description = "We found out, a wealthy man will be driving through the city, with his family. Including his daughter, who's a virgin. We've learned their place of rest, well guarded manor at the edge of town. It's known that virgins father is willing to arrange marriage with respectable noble to enlarge his fortune. Girl herself is naive and believes in true love at first sight, willing to risk scandal to just be swayed away by lover.",
             Actions = new[] {
                 new GameEventAction {
                     Type = GameEventActionType.Conflict,
