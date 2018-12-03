@@ -8,11 +8,13 @@ public class MusicController : MonoBehaviour {
     public AudioClip tutorial;
     public AudioClip[] buttons;
     public AudioClip whispers;
+    public AudioClip retardedWhisper;
     public AudioMixer mixer;
 
 
     AudioSource button;
     AudioSource whisper;
+    AudioSource retardedWhispers;
     AudioSource tut;
 
     void Start()
@@ -20,11 +22,14 @@ public class MusicController : MonoBehaviour {
         button = gameObject.AddComponent<AudioSource>();
         whisper = gameObject.AddComponent<AudioSource>();
         tut = gameObject.AddComponent<AudioSource>();
+        retardedWhispers = gameObject.AddComponent<AudioSource>();
 
         button.outputAudioMixerGroup = mixer.FindMatchingGroups("Button")[0];
         tut.outputAudioMixerGroup = mixer.FindMatchingGroups("Tutorial")[0];
         whisper.outputAudioMixerGroup = mixer.FindMatchingGroups("Whispers")[0];
+        retardedWhispers.outputAudioMixerGroup = mixer.FindMatchingGroups("Śmichy")[0];
         whisper.loop = true;
+        retardedWhispers.loop = true;
 
         tut.clip = tutorial;
         tut.Play();
@@ -35,6 +40,8 @@ public class MusicController : MonoBehaviour {
         tut.Stop();
         whisper.clip = whispers;
         whisper.Play();
+        retardedWhispers.clip = retardedWhisper;
+        retardedWhispers.Play();
     }
 
     //public void ButtonClick()

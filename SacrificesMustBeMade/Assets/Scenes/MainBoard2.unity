@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c94448ffad65a047880fc0a31713cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorial: {fileID: 8300000, guid: f113ac26c47f3374eaec3998f6d6f53c, type: 3}
+  tutorial: {fileID: 8300000, guid: c0ad82bf30e06764a95e8d90bc2e25f9, type: 3}
   buttons:
   - {fileID: 8300000, guid: 14b0504fd0501784a9c429a820ddfcc6, type: 3}
   - {fileID: 8300000, guid: 6f0ba98812d6c6d47ac81a477eb79e89, type: 3}
@@ -1986,7 +1986,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 09898038b33b4c34da114bc33939b63d, type: 3}
   - {fileID: 8300000, guid: 3f813e46f47b78b4d85d01727789647e, type: 3}
   - {fileID: 8300000, guid: dd70003f7616c3f40b4caa3400d18ce0, type: 3}
-  whispers: {fileID: 8300000, guid: da423ec79788d7b4bb7086d3ee1d8d4a, type: 3}
+  whispers: {fileID: 8300000, guid: 0e3b6112c6677714686f31634981e1d0, type: 3}
+  retardedWhisper: {fileID: 8300000, guid: a5e1c28aaf8f8b04ebe40b3fea4335b0, type: 3}
   mixer: {fileID: 24100000, guid: cd3c2359fe910bd439060ab3ba80d919, type: 2}
 --- !u!1 &799864275
 GameObject:
