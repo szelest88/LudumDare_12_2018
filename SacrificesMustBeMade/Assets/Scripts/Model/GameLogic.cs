@@ -90,6 +90,10 @@ namespace Model
             {
                 return GameResult.FAILURE_NO_CULTISTS;
             }
+            else if (gs.Res.Wealth == 0)
+            {
+                return GameResult.FAILURE_NO_WEALTH;
+            }
             else if (gs.Res.Zeal == 0)
             {
                 return GameResult.FAILURE_NO_ZEAL;

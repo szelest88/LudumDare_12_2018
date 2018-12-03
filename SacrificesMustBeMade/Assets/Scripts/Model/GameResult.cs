@@ -11,6 +11,7 @@ namespace Model
         UNKNOWN,
         SUCCESS,
         FAILURE_NO_CULTISTS,
+        FAILURE_NO_WEALTH,
         FAILURE_NO_ZEAL,
     }
 
