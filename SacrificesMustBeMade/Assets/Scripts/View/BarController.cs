@@ -20,7 +20,7 @@ public class BarController : MonoBehaviour {
             targetColor.a = 255;
             spriteRenderers.Add(t.GetComponent<SpriteRenderer>());
             t.GetComponent<SpriteRenderer>().color = targetColor;
-            t.transform.localScale = new Vector3(0.02f, 0.02f, 0);
+            t.transform.localScale = new Vector3(0.08f, 0.08f, 0);
             t.transform.SetParent(this.transform);
             t.transform.localPosition = new Vector3(-3.5f + i * 0.5f, 0, 0);
         }

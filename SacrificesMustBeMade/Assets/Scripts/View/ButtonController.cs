@@ -49,7 +49,6 @@ public class ButtonController : MonoBehaviour
     }
     public void OnGameFinish(Model.Game game)
     {
-        Debug.LogError("FINISH!");
         if (!isReset)
         {
             isActive = false;
