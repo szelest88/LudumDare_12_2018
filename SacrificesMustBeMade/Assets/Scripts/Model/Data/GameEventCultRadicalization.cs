@@ -26,13 +26,13 @@ namespace Model
                     Effect = gs => {
                         gs.Res.Zeal += 20;
                         gs.Res.Cultists -= 30;
-                        gs.Res.Notority =+ 20;
+                        gs.Res.Notority += 20;
                         return gs;
                     }
                 },
                 new GameEventAction {
                     Type = GameEventActionType.Diplomacy,
-                    Description = "I convince the cultists, they won't be much of use to you, if they die. Unfortunately, they don't think rationally, and concern you as an ungrateful god",
+                    Description = "I convince the cultists, they won't be much of use to you, if they die. Unfortunately, they don't think rationally, and concern you as an ungrateful god.",
                     Effect = gs => {
                         gs.Res.Zeal -=20;
                         return gs;

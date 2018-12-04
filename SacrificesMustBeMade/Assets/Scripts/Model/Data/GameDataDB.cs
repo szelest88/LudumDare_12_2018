@@ -40,6 +40,10 @@ namespace Model
             GameEventSuicidalThoughts.Event,
             GameEventUngratefulWorshipers.Event,
             GameEventWorkHarder.Event,
+            GameEventAvoidSpotlight.Event,
+            GameEventGangHidePlace.Event,
+            GameEventOurInfluenceGrows.Event,
+            GameEventSellOurStuff.Event
         };
 
     }
